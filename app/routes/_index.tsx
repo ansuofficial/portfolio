@@ -8,7 +8,7 @@ import RandomQuote from "~/components/RandomQuote";
 import Role from "~/components/Role";
 import Technologies from "~/components/Technologies";
 import { json, useLoaderData } from "@remix-run/react";
-import data from "~/utils/data.json"
+import data from "~/utils/data.json";
 
 export const meta: MetaFunction = () => {
   return [
@@ -17,7 +17,7 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export const loader =  () => {
+export const loader = () => {
   const quote = data;
   const randomIndex = Math.floor(Math.random() * data.length);
   const message = quote[randomIndex];
@@ -28,7 +28,7 @@ export default function Index() {
   const quote = useLoaderData();
   return (
     <main
-      className={`dark:bg-dark bg-light bg-cover bg-center bg-no-repeat min-h-screen max-h-[200vh] h-[174vh] md:h-[130vh] xl:h-[100vh] dark:bg-blend-overlay dark:bg-hoverShadow/80 bg-blend-overlay bg-white/70  absolute left-0 right-0 overflow-hidden`}
+      className={`dark:bg-dark bg-light bg-cover bg-center bg-no-repeat min-h-screen dark:bg-blend-overlay dark:bg-hoverShadow/80 bg-blend-overlay bg-white/70 absolute left-0 right-0`}
     >
       <div className="max-w-5xl mx-auto px-2 sm:px-4 md:px-6 space-y-4 mb-8">
         <NavBar />
