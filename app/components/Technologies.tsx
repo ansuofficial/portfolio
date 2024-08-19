@@ -7,7 +7,7 @@ function Technologies({ theme, styles }: any) {
       className={`dark:bg-hoverShadow bg-base px-4 py-2 rounded-lg space-y-4 ${styles}`}
     >
       <h1 className={`dark:text-white text-black text-xl`}>Skill sets</h1>
-      <ul className="gap-y-4 md:space-y-4 grid grid-cols-2 md:grid-cols-1">
+      <ul className="gap-y-4 md:space-y-2 grid grid-cols-2 md:grid-cols-1">
         <li className="flex items-center gap-x-2">
           <SiTypescript className="dark:text-white text-black w-6 h-6" />
           <span className="uppercase text-[#007acc] font-bold tracking-wide text-sm">
