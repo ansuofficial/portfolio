@@ -10,7 +10,7 @@ function About({styles} : any) {
         I'm Ansumana, a creative softwear developer. I specialize in building
         visual appealing and user-friendly websites, and also stay up-to-dae
         with cutting-edge technologies to drive business success. I deeply
-        explore your request to prepare a web solution specifically for you
+        explore your request to prepare a web solution specifically for your
         needs. I do only what your projects demand and give you the possibility
         to save time and money.
       </p>
