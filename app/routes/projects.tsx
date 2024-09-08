@@ -52,7 +52,7 @@ const pro = [
 function projects() {
   return (
     <main
-      className={`dark:bg-dark bg-light bg-cover bg-center bg-no-repeat min-h-screen dark:bg-blend-overlay dark:bg-hoverShadow/80 bg-blend-overlay bg-white/70 absolute left-0 right-0 bg-yellow-50`}
+      className={`dark:bg-dark bg-light bg-cover bg-center bg-no-repeat min-h-screen dark:bg-blend-overlay dark:bg-hoverShadow/80 bg-blend-overlay bg-white/80 absolute left-0 right-0`}
     >
       <div className="max-w-5xl mx-auto px-2 sm:px-4 md:px-6 space-y-4 mb-8">
         <NavBar />
