@@ -14,36 +14,39 @@ function contact() {
     >
       <div className="max-w-5xl mx-auto px-2 sm:px-4 md:px-6 space-y-4 mb-8">
         <NavBar />
-        <div className="flex justify-center md:gap-x-12 sm:gap-x-6 gap-x-4 ">
-          <div className="flex md:gap-x-6">
-            <div className="text-center flex flex-col justify-between py-6">
-              <div>
-                <BiPhone className="md:w-5 md:h-5 w-3 h-3 dark:text-white text-black mx-auto" />
-                <span className="uppercase text-sm font-bold dark:text-white text-black">
-                  Phone
-                </span>
+        {/* STL */}
+        <div className="flex sm:flex-row flex-col sm:gap-x-6  justify-center items-center mx-auto">
+          <div className="flex">
+            <div className="flex gap-x-6">
+              <div className="text-center flex flex-col justify-between py-6">
+                <div>
+                  <BiPhone className="md:w-5 md:h-5 w-3 h-3 dark:text-white text-black mx-auto" />
+                  <span className="uppercase text-sm font-bold dark:text-white text-black">
+                    Phone
+                  </span>
+                </div>
+                <p className="tracking-wide dark:text-white text-black md:text-sm text-xs">
+                  +220 3338111
+                </p>
               </div>
-              <p className="tracking-wide dark:text-white text-black md:text-sm text-xs">
-                +220 3338111
-              </p>
+              <div className="mx-4 h-28 w-[1px]  bg-gradient-to-t from-transparent dark:to-primary to-sencondary"></div>
             </div>
-            <div className="h-28 w-[1px]  bg-gradient-to-t from-transparent dark:to-primary to-sencondary"></div>
-          </div>
-          <div className="flex md:gap-x-6">
-            <div className="text-center flex flex-col justify-between py-6">
-              <div>
-                <MdEmail className="md:w-5 md:h-5 w-3 h-3 dark:text-white text-black mx-auto" />
-                <span className="uppercase text-sm font-bold dark:text-white text-black">
-                  Email
-                </span>
+            <div className="flex">
+              <div className="text-center flex flex-col justify-between py-6 sm:px-4">
+                <div>
+                  <MdEmail className="md:w-5 md:h-5 w-3 h-3 dark:text-white text-black mx-auto" />
+                  <span className="uppercase text-sm font-bold dark:text-white text-black">
+                    Email
+                  </span>
+                </div>
+                <p className="tracking-wide dark:text-white text-black md:text-sm text-xs">
+                  ansucoder@gmail.com
+                </p>
               </div>
-              <p className="tracking-wide dark:text-white text-black md:text-sm text-xs">
-                ansucoder@gmail.com
-              </p>
+              <div className="sm:mx-4 h-28 w-[1px] bg-gradient-to-t from-transparent dark:to-primary to-sencondary hidden sm:grid"></div>
             </div>
-            <div className="h-28 w-[1px]  bg-gradient-to-t from-transparent dark:to-primary to-sencondary"></div>
           </div>
-          <div className="flex md:gap-x-6">
+          <div className="space-y-6 flex flex-col items-center">
             <div className="text-center flex flex-col justify-between py-6">
               <div>
                 <BiLocationPlus className="md:w-5 md:h-5 w-3 h-3 dark:text-white text-black mx-auto" />
@@ -55,6 +58,7 @@ function contact() {
                 Serrekunda, The Gambia
               </p>
             </div>
+            <div className="w-28 h-[1px] bg-gradient-to-t from-transparent dark:to-primary to-sencondary sm:hidden"></div>
           </div>
         </div>
         <div className="lg:flex gap-x-12 space-y-2">
@@ -82,7 +86,9 @@ function contact() {
               />
             </div>
             <div>
-              <button className="dark:bg-primary bg-sencondary dark:text-white text-black md:text-sm text-xs uppercase font-bold tracking-wider p-4 rounded-lg">Send Message</button>
+              <button className="dark:bg-primary bg-sencondary dark:text-white text-black md:text-sm text-xs uppercase font-bold tracking-wider p-4 rounded-lg">
+                Send Message
+              </button>
             </div>
           </form>
           <div className=" lg:w-6/12 p-4 rounded-lg space-y-4 dark:bg-hoverShadow bg-base ">
