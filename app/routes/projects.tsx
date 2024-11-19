@@ -52,7 +52,7 @@ const pro = [
 function projects() {
   return (
     <main
-      className={`dark:bg-dark bg-light bg-cover bg-center bg-no-repeat min-h-screen dark:bg-blend-overlay dark:bg-hoverShadow/80 bg-blend-overlay bg-white/80 absolute left-0 right-0`}
+      className={`bg-dark bg-cover bg-center bg-no-repeat min-h-screen absolute left-0 right-0 bg-fixed`}
     >
       <div className="max-w-5xl mx-auto px-2 sm:px-4 md:px-6 space-y-4 mb-8">
         <NavBar />
@@ -66,24 +66,24 @@ function projects() {
                   className="max-w-xl w-full md:w-[400px] lg:w-[500px] rounded-lg"
                 />
                 <div className="flex gap-y-2 flex-col justify-between">
-                  <div className="dark:bg-transparent/20 bg-transparent/20 px-4 py-2 rounded-lg space-y-2">
-                    <h3 className="dark:text-white text-black uppercase font-bold tracking-wide ">
+                  <div className="bg-green-100/55 backdrop-blur px-4 py-2 rounded-lg space-y-2">
+                    <h3 className="text-gray-950 uppercase font-bold tracking-wide ">
                       {pro.title}
                     </h3>
-                    <p className="dark:text-white text-black text-sm leading-6">
+                    <p className="text-gray-950 text-sm leading-6">
                       {pro.desc}
                     </p>
                   </div>
 
-                  <div className="dark:bg-transparent/20 bg-transparent/20 px-4 py-2 rounded-lg">
-                    <h4 className="uppercase font-bold text-[0.6rem] px-2 dark:text-white text-black mb-2">
+                  <div className="bg-green-100/55 backdrop-blur px-4 py-2 rounded-lg">
+                    <h4 className="uppercase font-bold text-[0.6rem] px-2 text-gray-950 mb-2">
                       Stacks
                     </h4>
                     <div className="flex gap-x-4">
                       {pro.stacks.map((stack) => {
                         return (
                           <span
-                            className={`dark:text-white text-black p-2 text-[0.6rem] font-bold uppercase rounded-md ${
+                            className={`text-gray-950 p-2 text-[0.6rem] font-bold uppercase rounded-md ${
                               stack.bg
                             } ${stack?.text && stack.text}`}
                           >
