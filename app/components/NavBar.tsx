@@ -1,5 +1,12 @@
 import { NavLink } from "@remix-run/react";
-import Toggler from "./Toggler";
+import { json, useLoaderData } from "@remix-run/react";
+
+export const loader = async () => {
+  const response = await fetch("http://localhost:8080/getusers");
+  const result = await response.json();
+
+  return json(result);
+};
 
 const navLinks = [
   {
@@ -23,14 +30,13 @@ function NavBar() {
           to={navlink.href}
           className={({ isActive }) =>
             isActive
-              ? `dark:text-primary text-sencondary text-sm font-bold p-2`
+              ? `text-primary text-sm font-bold p-2`
               : `text-white text-sm font-bold duration-200 p-2`
           }
         >
           {navlink.name}
         </NavLink>
       ))}
-      {/* <Toggler /> */}
     </div>
   );
 }

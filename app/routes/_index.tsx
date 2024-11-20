@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import About from "~/components/About";
-import Education from "~/components/Education";
+import WorkExperience from "~/components/WorkExperience";
 import FancyImage from "~/components/FancyImage";
 import NavBar from "~/components/NavBar";
 import Profile from "~/components/Profile";
@@ -9,6 +9,8 @@ import Role from "~/components/Role";
 import Technologies from "~/components/Technologies";
 import { json, useLoaderData } from "@remix-run/react";
 import data from "~/utils/data.json";
+import {motion } from "motion/react";
+import { spring } from "motion";
 
 export const meta: MetaFunction = () => {
   return [
@@ -28,10 +30,12 @@ export default function Index() {
   const quote = useLoaderData();
   return (
     <main
-      className={`bg-dark bg-cover bg-center bg-no-repeat min-h-screen absolute left-0 right-0`}
+      className={`bg-dark bg-cover bg-center bg-no-repeat min-h-screen absolute left-0 right-0 bg-fixed`}
     >
       <div className="max-w-5xl mx-auto px-2 sm:px-4 md:px-6 space-y-4 mb-8">
-        <NavBar />
+        <motion.div initial={{ y: -500 }} animate={{ y: 0, transition:{ type: "spring", stiffness: 200 }}}>
+           <NavBar />
+        </motion.div>
 
         <div className="space-y-4">
           <div className="md:hidden space-y-4">
@@ -40,7 +44,7 @@ export default function Index() {
             <Role styles={"max-h-[7rem] h-dvh"} />
             <Technologies styles={""} />
             <RandomQuote styles={""} quote={quote} />
-            <Education styles={""} />
+            <WorkExperience styles={""} />
           </div>
           <div className="hidden md:grid grid-cols-3 gap-x-4">
             <About styles={"max-h-[10rem] col-span-2"} />
@@ -65,7 +69,7 @@ export default function Index() {
 
           <div className="hidden md:grid grid-cols-3 gap-x-4 ">
             <Technologies styles={"col-span-1 -mt-[8.5rem]"} />
-            <Education styles={"h-auto col-span-2"} />
+            <WorkExperience styles={"h-auto col-span-2"} />
           </div>
         </div>
       </div>
