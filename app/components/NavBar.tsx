@@ -30,7 +30,7 @@ function NavBar() {
           {navlink.name}
         </NavLink>
       ))}
-      <Toggler />
+      {/* <Toggler /> */}
     </div>
   );
 }
