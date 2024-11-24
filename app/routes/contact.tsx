@@ -5,7 +5,9 @@ import { MdEmail } from "react-icons/md";
 import { LiaLinkedin } from "react-icons/lia";
 import { FaGithub } from "react-icons/fa";
 import { BsTwitter } from "react-icons/bs";
+import { BsTwitterX } from "react-icons/bs";
 import { MetaFunction } from "@remix-run/node";
+import { Link } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -117,9 +119,18 @@ function contact() {
                   Let's connect
                 </h4>
                 <div className="flex gap-x-4">
-                  <LiaLinkedin className="w-5 h-5 text-gray-950" />
-                  <BsTwitter className="w-5 h-5 text-gray-950" />
-                  <FaGithub className="w-5 h-5 text-gray-950" />
+                  <Link
+                    to={"https://www.linkedin.com/in/ansu-badjie-3a979b280/"}
+                    target="_blank"
+                  >
+                    <LiaLinkedin className="w-5 h-5 text-gray-950" />
+                  </Link>
+                  <Link to={"https://x.com/ansucoder"} target="_blank">
+                    <BsTwitterX className="w-5 h-5 text-gray-950" />
+                  </Link>
+                  <Link to={"https://github.com/ansuofficial"} target="_blank">
+                    <FaGithub className="w-5 h-5 text-gray-950" />
+                  </Link>
                 </div>
               </div>
               <p className="text-gray-950 tracking-wide uppercase text-xs md">

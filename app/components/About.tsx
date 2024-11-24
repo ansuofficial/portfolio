@@ -9,7 +9,7 @@ function About({ styles }: any) {
       </h1>
       <p className={`text-gray-900 text-sm tracking-wide relative z-10`}>
         I'm Ansumana, a creative softwear developer. I specialize in building
-        visual appealing and user-friendly websites, and also stay up-to-dae
+        visual appealing and user-friendly websites, and also stay up-to-date
         with cutting-edge technologies to drive business success. I deeply
         explore your request to prepare a web solution specifically for your
         needs. I do only what your projects demand and give you the possibility
