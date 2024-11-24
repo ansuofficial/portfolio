@@ -2,6 +2,7 @@ import { MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
 import React from "react";
 import NavBar from "~/components/NavBar";
+import { BsGraphUpArrow } from "react-icons/bs";
 
 const pro = [
   {
@@ -26,29 +27,28 @@ const pro = [
   //     { name: "Google translate", bg: "bg-yellow-700" },
   //   ],
   // },
-  {
-    title: "Space Webite",
-    desc: "This project is an interactive and responsive space website with complex routing / multi-page, it has great UI/UX and a excellent SEO, Performance and Accessibility",
-    href: "https://spacewebsite-jcc.vercel.app/",
-    thumbnail: "/space-website-thumbnail.png",
-    stacks: [
-      { name: "Reactjs", bg: "bg-[#38bdb8]", text: "text-white" },
-      { name: "Tailwind", bg: "bg-[#38bdf8]" },
-      { name: "React Router", bg: "bg-[#38bdb8]" },
-    ],
-  },
-  {
-    title: "UIPool",
-    desc: "UIPool allows developers to dive into high-quality UI solutions that enhances their projects and boost their workflow. Whether you're building from scratch or optimizing an existing app, UI Ocean provides the tools you need to create beautiful, responsive user interfaces with ease.",
-    href: "https://uipool.vercel.app/",
-    thumbnail: "/uipool-thumbnail.png",
-    stacks: [
-      { name: "React", bg: "bg-[#38bdb8]", text: "text-white" },
-      { name: "Tailwind", bg: "bg-[#38bdf8]" },
-      { name: "React Router", bg: "bg-[#38bdb8]" },
-      // { name: "Google translate", bg: "bg-yellow-700" },
-    ],
-  },
+  // {
+  //   title: "Space Webite",
+  //   desc: "This project is an interactive and responsive space website with complex routing / multi-page, it has great UI/UX and a excellent SEO, Performance and Accessibility",
+  //   href: "https://spacewebsite-jcc.vercel.app/",
+  //   thumbnail: "/space-website-thumbnail.png",
+  //   stacks: [
+  //     { name: "Reactjs", bg: "bg-[#38bdb8]", text: "text-white" },
+  //     { name: "Tailwind", bg: "bg-[#38bdf8]" },
+  //     { name: "React Router", bg: "bg-[#38bdb8]" },
+  //   ],
+  // },
+  // {
+  //   title: "UIPool",
+  //   desc: "UIPool allows developers to dive into high-quality UI solutions that enhances their projects and boost their workflow. Whether you're building from scratch or optimizing an existing app, UI Ocean provides the tools you need to create beautiful, responsive user interfaces with ease.",
+  //   href: "https://uipool.vercel.app/",
+  //   thumbnail: "/uipool-thumbnail.png",
+  //   stacks: [
+  //     { name: "React", bg: "bg-[#38bdb8]", text: "text-white" },
+  //     { name: "Tailwind", bg: "bg-[#38bdf8]" },
+  //     { name: "React Router", bg: "bg-[#38bdb8]" },
+  //   ],
+  // },
 ];
 
 export const meta: MetaFunction = () => {
@@ -114,6 +114,10 @@ function projects() {
               </div>
             );
           })}
+        </div>
+        <div className="flex gap-4 items-center flex-wrap backdrop-blur text-white ring-1 rounded-md ring-primary p-4">
+          Stay tuned 12+ projects are in progress
+          <BsGraphUpArrow />
         </div>
       </div>
     </main>
