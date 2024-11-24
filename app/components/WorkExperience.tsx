@@ -5,35 +5,41 @@ function WorkExperience({ theme, styles }: any) {
     >
       <div className="absolute top-0 ring-0 h-full bg-green-100 w-full left-0 right-0 opacity-50"></div>
       <h1 className={`dark:text-white text-black text-xl relative z-10`}>
-        Work Experience
+        Professional Experience
       </h1>
       <div className="space-y-[4px] relative z-10">
         <div className="space-y-[2px]">
           <h1 className={`text-black font-bold tracking-wide`}>
-            Atended Gomindz as an intern
+            Intern - Gomindz
           </h1>
           <p className={`dark:text-white text-black text-xs`}>
-            I had the opportunity to work at Gomindz as an intern
+            Gained hands-on experience working with a dynamic team at Gomindz,
+            where I contributed to innovative projects and honed my skills in a
+            professional setting.
           </p>
         </div>
       </div>
       <div className="space-y-[4px] relative z-10">
         <div className="space-y-[2px]">
           <h1 className={`text-black font-bold tracking-wide`}>
-            Softwear Developer at Tritech
+            Software Developer - Tritech
           </h1>
           <p className={`dark:text-white text-black text-xs`}>
-            I currently work at Tritech as a Softwea Developer.
+            Currently employed at Tritech, where I specialize in developing
+            cutting-edge software solutions and collaborating with
+            cross-functional teams to drive impactful results.
           </p>
         </div>
       </div>
       <div className="space-y-[4px] relative z-10">
         <div className="space-y-[2px]">
           <h1 className={`text-black font-bold tracking-wide`}>
-            Teaching assistant at JasshehCodeCamp
+            Teaching Assistant - JassehCodeCamp
           </h1>
           <p className={`dark:text-white text-black text-xs`}>
-            I work as a Teaching assistant at JCC
+            Serve as a dedicated teaching assistant at JassehCodeCamp, mentoring
+            aspiring developers and supporting the growth of emerging talent in
+            the tech industry.
           </p>
         </div>
       </div>
