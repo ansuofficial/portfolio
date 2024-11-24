@@ -5,6 +5,18 @@ import { MdEmail } from "react-icons/md";
 import { LiaLinkedin } from "react-icons/lia";
 import { FaGithub } from "react-icons/fa";
 import { BsTwitter } from "react-icons/bs";
+import { MetaFunction } from "@remix-run/node";
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Contact Ansu" },
+    {
+      name: "Connect with ansu",
+      content:
+        "Ansumana Badjie contact information, contact Ansu Gambia, Contact Ansumana Badjie Gambian developer, connect with JassehCodeCamp developer, Ansu's contact information, Ansu Badjie gambian developer contact info",
+    },
+  ];
+};
 
 function contact() {
   return (

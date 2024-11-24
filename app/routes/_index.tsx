@@ -14,8 +14,12 @@ import { animate, spring } from "motion";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "Ansu's portfolio" },
+    {
+      name: "Ansu's portfolio website",
+      content:
+        "Ansumana Badjie, Ansu Gambia,Ansumana Badjie Gambian developer, JassehCodeCamp developer",
+    },
   ];
 };
 
