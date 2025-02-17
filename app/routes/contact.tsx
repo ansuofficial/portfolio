@@ -11,7 +11,7 @@ import { Link } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Contact Ansu" },
+    { title: "Contact" },
     {
       name: "Connect with ansu",
       content:

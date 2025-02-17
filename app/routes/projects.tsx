@@ -3,6 +3,7 @@ import { Link } from "@remix-run/react";
 import React from "react";
 import NavBar from "~/components/NavBar";
 import { BsGraphUpArrow } from "react-icons/bs";
+import { text } from "motion/react-client";
 
 const pro = [
   {
@@ -12,10 +13,35 @@ const pro = [
     thumbnail: "/bac-thumbnail.png",
     stacks: [
       { name: "Nextjs", bg: "bg-[#000000]", text: "text-white" },
-      { name: "Tailwind", bg: "bg-[#38bdf8]" },
-      { name: "Google translate", bg: "bg-yellow-700" },
+      { name: "Tailwind", bg: "bg-[#38bdf8]", text: "text-white"},
+      { name: "Google translate", bg: "bg-[#FFD700]", text: "text-white" },
+      { name: "Framer motion", bg: "bg-[#EF4444]", text: "text-white" },
     ],
   },
+   {
+    title:
+      "National Food Security processing and Marketing Corporation (NFSPMC)",
+    desc: "The Gambia National Food Security processing and Marketing Corporation is a full stack and responsive modern website with over 95% Search Engine Optimization (SEO), 90% Accessibility and 80% Performance",
+    href: "https://www.nfsc.gm/",
+    thumbnail: "/project-1.png",
+    stacks: [
+      { name: "Remix", bg: "bg-[#121212]", text: "text-white" },
+      { name: "Tailwind", bg: "bg-[#38bdf8]", text: "text-white"},
+      { name: "Framer motion", bg: "bg-[#EF4444]", text: "text-white" },
+
+    ],
+  },
+  {
+    title: "Wolurek",
+    desc: "Wolurek is The Gambia’s top platform, trusted by individuals and the government. It simplifies daily tasks like sending packages, paying bills, and buying tickets with a seamless, modern, and high-performing design.",
+    href: "https://www.nfsc.gm/",
+    thumbnail: "/wolurek.png",
+    stacks: [
+      { name: "AngularJS", bg: "bg-[#DD0031]", text: "text-white" }
+
+    ],
+  },
+
   // {
   //   title: "SumaHalis",
   //   desc: "SumaHalis is a user-friendly web application that allow user to do all types of transaction like transfering fictional cash from one account to another, user can also withdraw and event take loans. It's features include live analytics with real charts and also keep all records of you transaction.",
@@ -27,33 +53,33 @@ const pro = [
   //     { name: "Google translate", bg: "bg-yellow-700" },
   //   ],
   // },
-  // {
-  //   title: "Space Webite",
-  //   desc: "This project is an interactive and responsive space website with complex routing / multi-page, it has great UI/UX and a excellent SEO, Performance and Accessibility",
-  //   href: "https://spacewebsite-jcc.vercel.app/",
-  //   thumbnail: "/space-website-thumbnail.png",
-  //   stacks: [
-  //     { name: "Reactjs", bg: "bg-[#38bdb8]", text: "text-white" },
-  //     { name: "Tailwind", bg: "bg-[#38bdf8]" },
-  //     { name: "React Router", bg: "bg-[#38bdb8]" },
-  //   ],
-  // },
-  // {
-  //   title: "UIPool",
-  //   desc: "UIPool allows developers to dive into high-quality UI solutions that enhances their projects and boost their workflow. Whether you're building from scratch or optimizing an existing app, UI Ocean provides the tools you need to create beautiful, responsive user interfaces with ease.",
-  //   href: "https://uipool.vercel.app/",
-  //   thumbnail: "/uipool-thumbnail.png",
-  //   stacks: [
-  //     { name: "React", bg: "bg-[#38bdb8]", text: "text-white" },
-  //     { name: "Tailwind", bg: "bg-[#38bdf8]" },
-  //     { name: "React Router", bg: "bg-[#38bdb8]" },
-  //   ],
-  // },
+  {
+    title: "Space Webite",
+    desc: "This project is an interactive and responsive space website with complex routing / multi-page, it has great UI/UX and a excellent SEO, Performance and Accessibility",
+    href: "https://spacewebsite-jcc.vercel.app/",
+    thumbnail: "/space-website-thumbnail.png",
+    stacks: [
+      { name: "React", bg: "bg-[#61DAFB]", text: "text-white" },
+      { name: "Tailwind", bg: "bg-[#38BDF8]", text: "text-white" },
+      { name: "React Router", bg: "bg-[#CA4245]", text: "text-white" },
+    ],
+  },
+  {
+    title: "UIPool",
+    desc: "UIPool allows developers to dive into high-quality UI solutions that enhances their projects and boost their workflow. Whether you're building from scratch or optimizing an existing app, UI Ocean provides the tools you need to create beautiful, responsive user interfaces with ease.",
+    href: "https://uipool.vercel.app/",
+    thumbnail: "/uipool-thumbnail.png",
+    stacks: [
+      { name: "React", bg: "bg-[#61DAFB]", text: "text-white" },
+      { name: "Tailwind", bg: "bg-[#38bdf8]", text: "text-white"},
+      { name: "React Router", bg: "bg-[#CA4245]", text: "text-white" },
+    ],
+  },
 ];
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Ansu's projects" },
+    { title: "Projects" },
     {
       name: "Ansu's projects",
       content:
@@ -115,10 +141,10 @@ function projects() {
             );
           })}
         </div>
-        <div className="flex gap-4 items-center flex-wrap backdrop-blur text-white ring-1 rounded-md ring-primary p-4">
+        {/* <div className="flex gap-4 items-center flex-wrap backdrop-blur text-white ring-1 rounded-md ring-primary p-4">
           Stay tuned 12+ projects are in progress
           <BsGraphUpArrow />
-        </div>
+        </div> */}
       </div>
     </main>
   );
