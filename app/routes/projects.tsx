@@ -34,7 +34,7 @@ const pro = [
   {
     title: "Wolurek",
     desc: "Wolurek is The Gambia’s top platform, trusted by individuals and the government. It simplifies daily tasks like sending packages, paying bills, and buying tickets with a seamless, modern, and high-performing design.",
-    href: "https://www.nfsc.gm/",
+    href: "https://wolurek.com/",
     thumbnail: "/wolurek.png",
     stacks: [
       { name: "AngularJS", bg: "bg-[#DD0031]", text: "text-white" }
