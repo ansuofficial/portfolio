@@ -14,7 +14,7 @@ import { animate, spring } from "motion";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Ansu's portfolio" },
+    { title: "Ansu" },
     {
       name: "Ansu's portfolio website",
       content:

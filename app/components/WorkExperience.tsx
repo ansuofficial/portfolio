@@ -7,18 +7,7 @@ function WorkExperience({ theme, styles }: any) {
       <h1 className={`dark:text-white text-black text-xl relative z-10`}>
         Professional Experience
       </h1>
-      <div className="space-y-[4px] relative z-10">
-        <div className="space-y-[2px]">
-          <h1 className={`text-black font-bold tracking-wide`}>
-            Intern - Gomindz
-          </h1>
-          <p className={`dark:text-white text-black text-xs`}>
-            Gained hands-on experience working with a dynamic team at Gomindz,
-            where I contributed to innovative projects and honed my skills in a
-            professional setting.
-          </p>
-        </div>
-      </div>
+     
       <div className="space-y-[4px] relative z-10">
         <div className="space-y-[2px]">
           <h1 className={`text-black font-bold tracking-wide`}>
@@ -40,6 +29,18 @@ function WorkExperience({ theme, styles }: any) {
             Serve as a dedicated teaching assistant at JassehCodeCamp, mentoring
             aspiring developers and supporting the growth of emerging talent in
             the tech industry.
+          </p>
+        </div>
+      </div>
+       <div className="space-y-[4px] relative z-10">
+        <div className="space-y-[2px]">
+          <h1 className={`text-black font-bold tracking-wide`}>
+            Intern - Gomindz
+          </h1>
+          <p className={`dark:text-white text-black text-xs`}>
+            Gained hands-on experience working with a dynamic team at Gomindz,
+            where I contributed to innovative projects and honed my skills in a
+            professional setting.
           </p>
         </div>
       </div>
