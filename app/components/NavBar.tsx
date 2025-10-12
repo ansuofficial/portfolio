@@ -17,6 +17,14 @@ const navLinks = [
     name: "Projects",
     href: "/projects",
   },
+  // {
+  //   name: "Blog",
+  //   href: "/blog",
+  // },
+  // {
+  //   name: "Resources",
+  //   href: "/resources",
+  // },
   {
     name: "Contact",
     href: "/contact",
@@ -24,13 +32,13 @@ const navLinks = [
 ];
 function NavBar() {
   return (
-    <div className="flex justify-center items-center mx-auto gap-x-2 sm:gap-x-6 bg-transparent/50 sm:w-7/12 w-[18rem] lg:w-[30rem] px-4 lg:py-4 py-2 rounded-lg mt-6 sm:mt-12">
+    <div className="flex justify-center items-center mx-auto gap-x-2 sm:gap-x-6 bg-transparent/50 sm:w-7/12 w-[22rem] lg:w-[30rem] px-4 lg:py-4 py-2 rounded-lg mt-6 sm:mt-12 fixed left-0 right-0 z-10 backdrop-blur-sm">
       {navLinks.map((navlink) => (
         <NavLink
           to={navlink.href}
           className={({ isActive }) =>
             isActive
-              ? `text-primary text-sm font-bold p-2`
+              ? `text-primary sm:text-sm font-bold p-2`
               : `text-white text-sm font-bold duration-200 p-2`
           }
         >

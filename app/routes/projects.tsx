@@ -75,6 +75,24 @@ const pro = [
       { name: "React Router", bg: "bg-[#CA4245]", text: "text-white" },
     ],
   },
+  {
+    title: "Card Manager UI UX",
+    desc: "UIPool allows developers to dive into high-quality UI solutions that enhances their projects and boost their workflow. Whether you're building from scratch or optimizing an existing app, UI Ocean provides the tools you need to create beautiful, responsive user interfaces with ease.",
+    href: "https://uipool.vercel.app/",
+    thumbnail: "/uipool-thumbnail.png",
+    stacks: [
+      { name: "Figma", bg: "bg-[#61DAFB]", text: "text-white" },
+    ],
+  },
+  {
+    title: "Wave Mobile App UI UX",
+    desc: "UIPool allows developers to dive into high-quality UI solutions that enhances their projects and boost their workflow. Whether you're building from scratch or optimizing an existing app, UI Ocean provides the tools you need to create beautiful, responsive user interfaces with ease.",
+    href: "https://uipool.vercel.app/",
+    thumbnail: "/uipool-thumbnail.png",
+    stacks: [
+      { name: "figma", bg: "bg-[#61DAFB]", text: "text-white" },
+    ],
+  },
 ];
 
 export const meta: MetaFunction = () => {
@@ -90,11 +108,8 @@ export const meta: MetaFunction = () => {
 
 function projects() {
   return (
-    <main
-      className={`bg-dark bg-cover bg-center bg-no-repeat min-h-screen absolute left-0 right-0 bg-fixed`}
-    >
-      <div className="max-w-5xl mx-auto px-2 sm:px-4 md:px-6 space-y-4 mb-8">
-        <NavBar />
+    <main className="md:mt-44 mt-32">
+      <div className="max-w-5xl mx-auto space-y-4 mb-8 px-2">
         <div className="flex flex-col gap-y-12">
           {pro.map((pro) => {
             return (
@@ -102,7 +117,7 @@ function projects() {
                 <Link to={pro.href} target="_blank">
                   <img
                     src={pro.thumbnail}
-                    alt=""
+                    alt={pro.title}
                     className="max-w-xl w-full md:w-[400px] lg:w-[500px] rounded-lg"
                   />
                 </Link>

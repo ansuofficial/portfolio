@@ -14,7 +14,7 @@ function Profile({ styles }: any) {
         <img
           className="object-cover w-full absolute top-0"
           src="/ansu-dp-transparent.png"
-          alt=""
+          alt="Ansu Badjie Profile Photo"
         />
       </div>
       <h1 className={`text-gray-950  text-xl text-center relative z-10`}>

@@ -33,20 +33,8 @@ export const loader = () => {
 export default function Index() {
   const quote = useLoaderData();
   return (
-    <main
-      className={`bg-dark bg-cover bg-center bg-no-repeat min-h-screen absolute left-0 right-0 bg-fixed`}
-    >
+    <main className="md:mt-44 mt-32">
       <div className="max-w-5xl mx-auto px-2 sm:px-4 md:px-6 space-y-4 mb-8">
-        <motion.div
-          initial={{ y: -500 }}
-          animate={{
-            y: 0,
-            transition: { type: "spring", stiffness: 200 },
-          }}
-        >
-          <NavBar />
-        </motion.div>
-
         <div className="space-y-4">
           {/* Mobile view */}
 

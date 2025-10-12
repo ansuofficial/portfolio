@@ -11,7 +11,7 @@ function WorkExperience({ theme, styles }: any) {
       <div className="space-y-[4px] relative z-10">
         <div className="space-y-[2px]">
           <h1 className={`text-black font-bold tracking-wide`}>
-            Software Developer - Tritech
+            Lead Fronend Developer - Jassehcodecamp
           </h1>
           <p className={`dark:text-white text-black text-xs`}>
             Currently employed at Tritech, where I specialize in developing
@@ -23,7 +23,7 @@ function WorkExperience({ theme, styles }: any) {
       <div className="space-y-[4px] relative z-10">
         <div className="space-y-[2px]">
           <h1 className={`text-black font-bold tracking-wide`}>
-            Teaching Assistant - JassehCodeCamp
+            Instructor - JassehCodeCamp
           </h1>
           <p className={`dark:text-white text-black text-xs`}>
             Serve as a dedicated teaching assistant at JassehCodeCamp, mentoring

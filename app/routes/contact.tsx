@@ -96,9 +96,7 @@ function contact() {
 };
 
   return (
-    <main
-      className={`bg-dark bg-cover bg-center bg-no-repeat min-h-screen absolute left-0 right-0 bg-fixed`}
-    >
+    <main className="md:mt-44 mt-32">
       {showMessage && (
         <div
           className={`bg-gradient-to-l from-transparent ${
@@ -111,7 +109,7 @@ function contact() {
         </div>
       )}
       <div className="max-w-5xl mx-auto px-2 sm:px-4 md:px-6 space-y-4 mb-8">
-        <NavBar />
+        {/* <NavBar /> */}
         {/* STL */}
         <div className="flex sm:flex-row flex-col sm:gap-x-6  justify-center items-center mx-auto">
           <div className="flex">
