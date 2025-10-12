@@ -11,7 +11,7 @@ function WorkExperience({ theme, styles }: any) {
       <div className="space-y-[4px] relative z-10">
         <div className="space-y-[2px]">
           <h1 className={`text-black font-bold tracking-wide`}>
-            Lead Fronend Developer - Jassehcodecamp
+            Lead Frontend Developer - Jassehcodecamp
           </h1>
           <p className={`dark:text-white text-black text-xs`}>
             Currently employed at Tritech, where I specialize in developing
