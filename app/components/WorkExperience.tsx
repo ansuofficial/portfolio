@@ -14,9 +14,10 @@ function WorkExperience({ theme, styles }: any) {
             Lead Frontend Developer - Jassehcodecamp
           </h1>
           <p className={`dark:text-white text-black text-xs`}>
-            Currently employed at Tritech, where I specialize in developing
-            cutting-edge software solutions and collaborating with
-            cross-functional teams to drive impactful results.
+            As a Lead Frontend Developer at Jassehcodecamp, I craft high performing,
+            visually engaging web experiences using modern technologies. I collaborate
+            closely with backend engineers, and stakeholders to build
+            innovative, scalable solutions that deliver real impact.
           </p>
         </div>
       </div>
@@ -26,9 +27,10 @@ function WorkExperience({ theme, styles }: any) {
             Instructor - JassehCodeCamp
           </h1>
           <p className={`dark:text-white text-black text-xs`}>
-            Serve as a dedicated teaching assistant at JassehCodeCamp, mentoring
-            aspiring developers and supporting the growth of emerging talent in
-            the tech industry.
+             Empowering the next generation of developers through hands-on instruction at
+             JassehCodeCamp. I design and deliver practical coding sessions, mentor
+             emerging engineers, and help shape their journey into professional software
+             development.
           </p>
         </div>
       </div>
