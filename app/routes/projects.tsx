@@ -13,12 +13,12 @@ const pro = [
     thumbnail: "/bac-thumbnail.png",
     stacks: [
       { name: "Nextjs", bg: "bg-[#000000]", text: "text-white" },
-      { name: "Tailwind", bg: "bg-[#38bdf8]", text: "text-white"},
+      { name: "Tailwind", bg: "bg-[#38bdf8]", text: "text-white" },
       { name: "Google translate", bg: "bg-[#FFD700]", text: "text-white" },
       { name: "Framer motion", bg: "bg-[#EF4444]", text: "text-white" },
     ],
   },
-   {
+  {
     title:
       "National Food Security processing and Marketing Corporation (NFSPMC)",
     desc: "The Gambia National Food Security processing and Marketing Corporation is a full stack and responsive modern website with over 95% Search Engine Optimization (SEO), 90% Accessibility and 80% Performance",
@@ -26,9 +26,8 @@ const pro = [
     thumbnail: "/project-1.png",
     stacks: [
       { name: "Remix", bg: "bg-[#121212]", text: "text-white" },
-      { name: "Tailwind", bg: "bg-[#38bdf8]", text: "text-white"},
+      { name: "Tailwind", bg: "bg-[#38bdf8]", text: "text-white" },
       { name: "Framer motion", bg: "bg-[#EF4444]", text: "text-white" },
-
     ],
   },
   {
@@ -37,22 +36,9 @@ const pro = [
     href: "https://wolurek.com/",
     thumbnail: "/wolurek.png",
     stacks: [
-      { name: "AngularJS", bg: "bg-[#DD0031]", text: "text-white" }
-
+      { name: "AngularJS", bg: "bg-[#DD0031]", text: "text-white" },
     ],
   },
-
-  // {
-  //   title: "SumaHalis",
-  //   desc: "SumaHalis is a user-friendly web application that allow user to do all types of transaction like transfering fictional cash from one account to another, user can also withdraw and event take loans. It's features include live analytics with real charts and also keep all records of you transaction.",
-  //   href: "/",
-  //   thumbnail: "/projectc-2.png",
-  //   stacks: [
-  //     { name: "Nextjs", bg: "bg-[#000000]", text: "text-white" },
-  //     { name: "Tailwind", bg: "bg-[#38bdf8]" },
-  //     { name: "Google translate", bg: "bg-yellow-700" },
-  //   ],
-  // },
   {
     title: "Space Webite",
     desc: "This project is an interactive and responsive space website with complex routing / multi-page, it has great UI/UX and a excellent SEO, Performance and Accessibility",
@@ -70,30 +56,40 @@ const pro = [
     href: "https://uipool.vercel.app/",
     thumbnail: "/uipool-thumbnail.png",
     stacks: [
-      { name: "React", bg: "bg-[#61DAFB]", text: "text-white" },
-      { name: "Tailwind", bg: "bg-[#38bdf8]", text: "text-white"},
+      { name: "Tailwind", bg: "bg-[#38bdf8]", text: "text-white" },
       { name: "React Router", bg: "bg-[#CA4245]", text: "text-white" },
     ],
   },
   {
-    title: "Card Manager UI UX",
-    desc: "UIPool allows developers to dive into high-quality UI solutions that enhances their projects and boost their workflow. Whether you're building from scratch or optimizing an existing app, UI Ocean provides the tools you need to create beautiful, responsive user interfaces with ease.",
-    href: "https://uipool.vercel.app/",
-    thumbnail: "/uipool-thumbnail.png",
+    title: "Spend The Gambia's GDP",
+    desc: "Spend The Gambia's GDP (Rich Gambian) is a creative data visualization web project that allows users to explore and simulate how the country's GDP could be spent interactively. It combines design, interactivity, and analytics for a fun yet insightful experience.",
+    href: "https://rich-gambian.vercel.app/",
+    thumbnail: "/rich-gambian.png",
     stacks: [
-      { name: "Figma", bg: "bg-[#61DAFB]", text: "text-white" },
+      { name: "Nextjs", bg: "bg-[#000000]", text: "text-white" },
+      { name: "Tailwind", bg: "bg-[#38bdf8]", text: "text-white" },
     ],
   },
   {
     title: "Wave Mobile App UI UX",
-    desc: "UIPool allows developers to dive into high-quality UI solutions that enhances their projects and boost their workflow. Whether you're building from scratch or optimizing an existing app, UI Ocean provides the tools you need to create beautiful, responsive user interfaces with ease.",
-    href: "https://uipool.vercel.app/",
-    thumbnail: "/uipool-thumbnail.png",
+    desc: "Wave Mobile App is a modern, finance-themed UI/UX design concept created in Figma. It focuses on simplicity, usability, and smooth user interaction for digital payment and money transfer experiences.",
+    href: "https://www.figma.com/proto/5YHOE7YbgbdDYCPOyULMnq/wave-web-prototype?node-id=1-2&t=0dpOlgr7n3VoH0Ns-1",
+    thumbnail: "/Wave inspiration.png",
     stacks: [
-      { name: "figma", bg: "bg-[#61DAFB]", text: "text-white" },
+      { name: "Figma", bg: "bg-[#F24E1E]", text: "text-white" },
+    ],
+  },
+  {
+    title: "Card Manager UI UX",
+    desc: "Card Manager UI is a clean and minimalistic Figma design showcasing a smart card management dashboard with real-time tracking, spending insights, and intuitive navigation for better user engagement.",
+    href: "https://www.figma.com/proto/gdwt79Qit6gtWOwTqoPWfL/Untitled?node-id=6-22&t=0dpOlgr7n3VoH0Ns-1",
+    thumbnail: "/figma-ui.png",
+    stacks: [
+      { name: "Figma", bg: "bg-[#F24E1E]", text: "text-white" },
     ],
   },
 ];
+
 
 export const meta: MetaFunction = () => {
   return [
@@ -114,11 +110,12 @@ function projects() {
           {pro.map((pro) => {
             return (
               <div className="md:flex gap-x-6 space-y-2">
+
                 <Link to={pro.href} target="_blank">
                   <img
                     src={pro.thumbnail}
                     alt={pro.title}
-                    className="max-w-xl w-full md:w-[400px] lg:w-[500px] rounded-lg"
+                    className="max-w-xl w-full md:w-[400px] lg:w-[500px] rounded-lg max-h-80 object-cover"
                   />
                 </Link>
                 <div className="flex gap-y-2 flex-col justify-between">
