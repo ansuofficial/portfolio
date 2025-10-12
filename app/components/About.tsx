@@ -8,12 +8,7 @@ function About({ styles }: any) {
         Who the hell am i?
       </h1>
       <p className={`text-gray-900 text-sm tracking-wide relative z-10`}>
-        I'm Ansumana, a creative softwear developer. I specialize in building
-        visual appealing and user-friendly applications, and also stay up-to-date
-        with cutting-edge technologies to drive business success. I deeply
-        explore your request to prepare a web solution specifically for your
-        needs. I do only what your projects demand and give you the possibility
-        to save time and money.
+        I’m Ansumana, Frontend Engineer dedicated to creating elegant, high-performance, and user-focused experiences across platforms. I combine design precision with engineering expertise building scalable, accessible, and visually engaging interfaces powered by TypeScript, JavaScript, and React. I’m driven by a simple goal to craft intuitive digital experiences that inspire, perform, and endure.
       </p>
     </div>
   );
