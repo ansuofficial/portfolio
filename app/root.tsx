@@ -17,8 +17,22 @@ export const links: LinksFunction = () => {
   return [
     {
       rel: "icon",
+      type: "image/svg+xml",
+      href: "/favicon.svg",
+    },
+    {
+      rel: "alternate icon",
       type: "image/png",
+      href: "/favicon.ico",
+    },
+    {
+      rel: "apple-touch-icon",
+      sizes: "180x180",
       href: "/apple-touch-icon.png",
+    },
+    {
+      rel: "manifest",
+      href: "/site.webmanifest",
     },
   ];
 };
@@ -98,19 +112,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 
       </head>
-      <body className="overflow-x-hidden  bg-dark bg-cover bg-center bg-no-repeat min-h-screen absolute left-0 right-0 bg-fixed">
-        <motion.div
-          className="px-2 sm:px-4 md:px-6 mb-4"
-          initial={{ y: -500 }}
-          animate={{
-            y: 0,
-            transition: { type: "spring", stiffness: 200 },
-          }}
-        >
-          <NavBar />
-        </motion.div>
+      <body className="overflow-x-hidden min-h-screen">
+        <NavBar />
 
-        {children}
+        <div className="pt-24 md:pt-20">
+          {children}
+        </div>
         <ScrollRestoration />
         <Scripts />
       </body>

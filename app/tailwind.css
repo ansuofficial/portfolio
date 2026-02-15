@@ -1,3 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+  
+  body {
+    @apply text-white;
+    background-color: #0a0e14;
+    background-image: 
+      repeating-linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.06) 0px,
+        rgba(255, 255, 255, 0.06) 1px,
+        transparent 1px,
+        transparent 24px
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.06) 0px,
+        rgba(255, 255, 255, 0.06) 1px,
+        transparent 1px,
+        transparent 24px
+      ),
+      radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(255, 62, 0, 0.04) 0%, transparent 50%),
+      linear-gradient(180deg, rgba(10, 14, 20, 0.95) 0%, rgba(5, 8, 12, 1) 100%);
+    background-attachment: fixed;
+    position: relative;
+    min-height: 100vh;
+  }
+  
+  body > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+  
+  .glass-strong {
+    @apply bg-white/10 backdrop-blur-2xl border border-white/20;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+}

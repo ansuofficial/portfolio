@@ -1,27 +1,34 @@
-function Profile({ styles }: any) {
+import { memo } from "react";
+
+interface ProfileProps {
+  styles?: string;
+}
+
+function Profile({ styles = "" }: ProfileProps) {
   return (
     <div
-      className={`bg-gradient-to-t from-gray-200 to-transparent px-4 py-2 rounded-lg flex flex-col justify-center items-center relative overflow-hidden backdrop-blur ${styles}`}
+      className={`glass rounded-2xl p-6 flex flex-col justify-center items-center space-y-4 ${styles}`}
+      role="region"
+      aria-label="Profile Information"
     >
-      <div className="absolute top-0 ring-0 h-full bg-green-100 w-full left-0 right-0 opacity-50"></div>
-      <div className="h-44 w-44 relative rounded-full overflow-hidden z-10">
-        {/* <img className="block" src={`/primary-blob.svg`} alt="primary-blob" /> */}
-        {/* <img
-          className="hidden"
-          src={`/secondary-blob.svg`}
-          alt="secondary-blob"
-        /> */}
-        <img
-          className="object-cover w-full absolute top-0"
-          src="/ansu-dp-transparent.png"
-          alt="Ansu Badjie Profile Photo"
-        />
+      <div className="relative">
+        <div className="h-32 w-32 md:h-40 md:w-40 relative rounded-full overflow-hidden ring-4 ring-white/10">
+          <img
+            className="object-cover w-full h-full object-[center_top] scale-105"
+            src="/ansu-dp-transparent.png"
+            alt="Ansu Badjie Profile Photo"
+            loading="lazy"
+            width={160}
+            height={160}
+          />
+        </div>
+        <div className="absolute -bottom-1 -right-1 h-6 w-6 bg-primary rounded-full border-2 border-slate-900" />
       </div>
-      <h1 className={`text-gray-950  text-xl text-center relative z-10`}>
+      <h1 className="text-white text-xl md:text-2xl font-display font-bold text-center tracking-tight">
         Ansumana Badjie
       </h1>
     </div>
   );
 }
 
-export default Profile;
+export default memo(Profile);

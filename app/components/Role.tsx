@@ -1,13 +1,26 @@
-function Role({ theme, styles }: any) {
+import { memo } from "react";
+
+interface RoleProps {
+  styles?: string;
+}
+
+function Role({ styles = "" }: RoleProps) {
   return (
     <div
-      className={`bg-gradient-to-tr from-transparent to-white px-4 py-2 rounded-lg flex items-center justify-center relative overflow-hidden ${styles}`}
+      className={`glass rounded-2xl p-6 flex items-center justify-center ${styles}`}
+      role="region"
+      aria-label="Professional Role"
     >
-      <div className="absolute top-0 ring-0 h-full bg-green-100 w-full left-0 right-0 opacity-50"></div>
-
-      <h1 className={`text-black text-xl relative z-10`}>Frontend Developer</h1>
+      <div className="text-center space-y-2">
+        <h1 className="text-white text-xl md:text-2xl font-display font-bold tracking-tight">
+          Frontend Developer
+        </h1>
+        <p className="text-white/60 text-sm font-medium">
+          Digital Strategist & Engineer
+        </p>
+      </div>
     </div>
   );
 }
 
-export default Role;
+export default memo(Role);

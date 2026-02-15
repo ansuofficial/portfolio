@@ -1,17 +1,30 @@
-function RandomQuote({ styles, quote }: any) {
+import { memo } from "react";
+
+interface RandomQuoteProps {
+  styles?: string;
+  quote: {
+    message: string;
+  };
+}
+
+function RandomQuote({ styles = "", quote }: RandomQuoteProps) {
   return (
     <div
-      className={`bg-gradient-to-l from-transparent to-white px-4 py-2 rounded-lg space-y-4 overflow-hidden relative  ${styles}`}
+      className={`glass rounded-2xl p-6 space-y-4 ${styles}`}
+      role="region"
+      aria-labelledby="quote-heading"
     >
-      <div className="absolute top-0 ring-0 h-full bg-green-100 w-full left-0 right-0 opacity-50"></div>
       <h1
-        className={`text-black text-xl underline decoration-primary relative z-10`}
+        id="quote-heading"
+        className="text-white text-xl font-display font-bold tracking-tight"
       >
-        What Drives Me as a Developer
+        What Drives Me
       </h1>
-      <h2 className={`text-black relative z-10`}>{quote.message}</h2>
+      <blockquote className="text-white/80 text-base leading-relaxed italic">
+        "{quote.message}"
+      </blockquote>
     </div>
   );
 }
 
-export default RandomQuote;
+export default memo(RandomQuote);

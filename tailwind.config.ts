@@ -1,20 +1,31 @@
-module.exports = {
+import type { Config } from "tailwindcss";
+
+export default {
   content: ["./app/**/*.{js,jsx,ts,tsx}"],
   darkMode: "class",
   theme: {
     extend: {
       colors: {
         primary: "#ff3e00",
-        sencondary: "#22c55e",
+        secondary: "#22c55e",
         base: "#f3f4f6",
         hoverShadow: "#0F0F0F",
       },
-      backgroundImage: {
-        dark: "url('/black-background.jpg')",
-        light: "url('/white-background.jpg')",
+      fontFamily: {
+        sans: ["Inter", "system-ui", "sans-serif"],
+        display: ["Cal Sans", "Inter", "system-ui", "sans-serif"],
+      },
+      spacing: {
+        "18": "4.5rem",
+        "88": "22rem",
+      },
+      borderRadius: {
+        "4xl": "2rem",
+      },
+      backdropBlur: {
+        xs: "2px",
       },
     },
   },
   plugins: [],
-  // safelist: ["bg-[rgb(97, 219, 251)]"],
-};
+} satisfies Config;

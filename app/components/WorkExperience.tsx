@@ -1,53 +1,67 @@
-function WorkExperience({ theme, styles }: any) {
+import { memo } from "react";
+
+interface WorkExperienceProps {
+  styles?: string;
+}
+
+interface Experience {
+  title: string;
+  company: string;
+  description: string;
+}
+
+const experiences: Experience[] = [
+  {
+    title: "Lead Frontend Developer",
+    company: "Jassehcodecamp",
+    description:
+      "Crafting high-performing, visually engaging web experiences using modern technologies. Collaborating closely with backend engineers and stakeholders to build innovative, scalable solutions that deliver real impact.",
+  },
+  {
+    title: "Instructor",
+    company: "JassehCodeCamp",
+    description:
+      "Empowering the next generation of developers through hands-on instruction. Designing and delivering practical coding sessions, mentoring emerging engineers, and shaping their journey into professional software development.",
+  },
+  {
+    title: "Intern",
+    company: "Gomindz",
+    description:
+      "Gained hands-on experience working with a dynamic team, contributing to innovative projects and honing skills in a professional setting.",
+  },
+];
+
+function WorkExperience({ styles = "" }: WorkExperienceProps) {
   return (
     <div
-      className={`bg-gradient-to-r from-white to-transparent px-4 py-2 rounded-lg space-y-2 overflow-hidden backdrop-blur relative ${styles}`}
+      className={`glass rounded-2xl p-6 lg:p-8 space-y-6 flex flex-col h-full ${styles}`}
+      role="region"
+      aria-labelledby="experience-heading"
     >
-      <div className="absolute top-0 ring-0 h-full bg-green-100 w-full left-0 right-0 opacity-50"></div>
-      <h1 className={`dark:text-white text-black text-xl relative z-10`}>
+      <h1
+        id="experience-heading"
+        className="text-white text-xl md:text-2xl font-display font-bold tracking-tight"
+      >
         Professional Experience
       </h1>
-     
-      <div className="space-y-[4px] relative z-10">
-        <div className="space-y-[2px]">
-          <h1 className={`text-black font-bold tracking-wide`}>
-            Lead Frontend Developer - Jassehcodecamp
-          </h1>
-          <p className={`dark:text-white text-black text-xs`}>
-            As a Lead Frontend Developer at Jassehcodecamp, I craft high performing,
-            visually engaging web experiences using modern technologies. I collaborate
-            closely with backend engineers, and stakeholders to build
-            innovative, scalable solutions that deliver real impact.
-          </p>
-        </div>
-      </div>
-      <div className="space-y-[4px] relative z-10">
-        <div className="space-y-[2px]">
-          <h1 className={`text-black font-bold tracking-wide`}>
-            Instructor - JassehCodeCamp
-          </h1>
-          <p className={`dark:text-white text-black text-xs`}>
-             Empowering the next generation of developers through hands-on instruction at
-             JassehCodeCamp. I design and deliver practical coding sessions, mentor
-             emerging engineers, and help shape their journey into professional software
-             development.
-          </p>
-        </div>
-      </div>
-       <div className="space-y-[4px] relative z-10">
-        <div className="space-y-[2px]">
-          <h1 className={`text-black font-bold tracking-wide`}>
-            Intern - Gomindz
-          </h1>
-          <p className={`dark:text-white text-black text-xs`}>
-            Gained hands-on experience working with a dynamic team at Gomindz,
-            where I contributed to innovative projects and honed my skills in a
-            professional setting.
-          </p>
-        </div>
+      <div className="space-y-6 flex-1">
+        {experiences.map((exp, index) => (
+          <div
+            key={`${exp.company}-${index}`}
+            className="space-y-2 pb-6 border-b border-white/10 last:border-0 last:pb-0"
+          >
+            <h2 className="text-white font-semibold text-lg tracking-tight">
+              {exp.title}
+              <span className="text-white/60 font-normal"> — {exp.company}</span>
+            </h2>
+            <p className="text-white/70 text-sm leading-relaxed">
+              {exp.description}
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   );
 }
 
-export default WorkExperience;
+export default memo(WorkExperience);
