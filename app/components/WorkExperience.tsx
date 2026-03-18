@@ -12,22 +12,22 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
-    title: "Lead Frontend Developer",
+    title: "Lead Frontend Engineer",
     company: "Jassehcodecamp",
     description:
-      "Crafting high-performing, visually engaging web experiences using modern technologies. Collaborating closely with backend engineers and stakeholders to build innovative, scalable solutions that deliver real impact.",
+      "Led frontend delivery for production web apps—owning UI architecture, performance, and release quality. Partnered with backend engineers and stakeholders to ship scalable features, integrate real-world APIs, and keep the product fast as it grew.",
   },
   {
     title: "Instructor",
     company: "JassehCodeCamp",
     description:
-      "Empowering the next generation of developers through hands-on instruction. Designing and delivering practical coding sessions, mentoring emerging engineers, and shaping their journey into professional software development.",
+      "Designed hands-on curricula and mentored engineers through practical projects. Focused on fundamentals that translate to production work: debugging, clean architecture, accessibility, and maintainable React/TypeScript codebases.",
   },
   {
     title: "Intern",
     company: "Gomindz",
     description:
-      "Gained hands-on experience working with a dynamic team, contributing to innovative projects and honing skills in a professional setting.",
+      "Contributed to shipped features in a team environment—learning delivery workflows, code review discipline, and how to build reliable UI against changing requirements.",
   },
 ];
 

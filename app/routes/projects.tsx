@@ -19,7 +19,7 @@ interface Project {
 const projects: Project[] = [
   {
     title: "Brikama Area Council",
-    desc: "A fullstack and responsive modern website with exceptional Search Engine Optimization, accessibility, and performance metrics. Built for a government institution requiring robust functionality and user experience.",
+    desc: "Public-sector platform built for a government institution, with a responsive UI, strong accessibility, and search-friendly architecture. Optimized for performance and reliability under real-world traffic and content needs.",
     href: "https://www.brikama.gm/",
     thumbnail: "/bac-thumbnail.png",
     stacks: [
@@ -33,7 +33,7 @@ const projects: Project[] = [
   },
   {
     title: "National Food Security Processing and Marketing Corporation",
-    desc: "A comprehensive full-stack platform for The Gambia's national food security corporation. Features modern architecture, responsive design, and optimized performance for critical public services.",
+    desc: "Production web platform for a national food security organization, designed for clarity, resilience, and maintainability. Delivered a scalable UI architecture with strong performance and responsive layouts for public-facing services.",
     href: "https://www.nfsc.gm/",
     thumbnail: "/project-1.png",
     stacks: [
@@ -46,7 +46,7 @@ const projects: Project[] = [
   },
   {
     title: "Wolurek",
-    desc: "The Gambia's leading platform trusted by individuals and government institutions. Simplifies daily tasks including package delivery, bill payments, and ticket purchases with a seamless, modern, and high-performing design.",
+    desc: "Multi-service consumer platform used by individuals and institutions. Built a fast, reliable frontend for critical flows (delivery, bill payments, ticketing), optimized for usability and smooth end-to-end transactions.",
     href: "https://wolurek.com/",
     thumbnail: "/wolurek.png",
     stacks: [
@@ -56,7 +56,7 @@ const projects: Project[] = [
   },
   {
     title: "Space Website",
-    desc: "An interactive and responsive space exploration website featuring complex routing and multi-page architecture. Demonstrates excellent UI/UX principles with strong SEO, performance, and accessibility scores.",
+    desc: "Multi-page React app with structured routing and a component-driven architecture. Built for performance and accessibility, with careful attention to navigation, content structure, and responsive layouts.",
     href: "https://spacewebsite-jcc.vercel.app/",
     thumbnail: "/space-website-thumbnail.png",
     stacks: [
@@ -68,7 +68,7 @@ const projects: Project[] = [
   },
   {
     title: "UIPool",
-    desc: "A comprehensive UI component library that empowers developers to integrate high-quality UI solutions into their projects. Streamlines workflow and accelerates development with beautiful, responsive interface components.",
+    desc: "Reusable UI component library built to standardize patterns, speed up delivery, and improve consistency across products. Designed for composability, responsiveness, and long-term maintainability.",
     href: "https://uipool.vercel.app/",
     thumbnail: "/uipool-thumbnail.png",
     stacks: [
@@ -79,7 +79,7 @@ const projects: Project[] = [
   },
   {
     title: "Spend The Gambia's GDP",
-    desc: "A creative data visualization platform that enables users to explore and simulate how The Gambia's GDP could be allocated. Combines interactive design, data analytics, and user engagement for an insightful experience.",
+    desc: "Interactive data visualization experience that lets users simulate GDP allocation scenarios. Built an engaging, responsive UI with clear information hierarchy and smooth interactions for exploring trade-offs.",
     href: "https://rich-gambian.vercel.app/",
     thumbnail: "/rich-gambian.png",
     stacks: [
@@ -90,7 +90,7 @@ const projects: Project[] = [
   },
   {
     title: "Wave Mobile App UI/UX",
-    desc: "A modern, finance-themed UI/UX design concept created in Figma. Focuses on simplicity, usability, and smooth user interaction for digital payment and money transfer experiences.",
+    desc: "Finance product UI concept in Figma focused on clear flows, predictable states, and strong usability. Designed to reduce friction in core payment and money-transfer journeys.",
     href: "https://www.figma.com/proto/5YHOE7YbgbdDYCPOyULMnq/wave-web-prototype?node-id=1-2&t=0dpOlgr7n3VoH0Ns-1",
     thumbnail: "/Wave inspiration.png",
     stacks: [
@@ -100,7 +100,7 @@ const projects: Project[] = [
   },
   {
     title: "Card Manager UI/UX",
-    desc: "A clean and minimalistic Figma design showcasing an intelligent card management dashboard. Features real-time tracking, spending insights, and intuitive navigation for enhanced user engagement.",
+    desc: "Dashboard UI concept for card management with clear information architecture. Designed flows for tracking, spending insights, and navigation that scales across common states and edge cases.",
     href: "https://www.figma.com/proto/gdwt79Qit6gtWOwTqoPWfL/Untitled?node-id=6-22&t=0dpOlgr7n3VoH0Ns-1",
     thumbnail: "/figma-ui.png",
     stacks: [
@@ -116,7 +116,7 @@ export const meta: MetaFunction = () => {
     {
       name: "description",
       content:
-        "Explore projects by Ansumana Badjie - Frontend Developer. Modern web applications built with React, Remix, Next.js, and cutting-edge technologies.",
+        "Explore projects by Ansumana Badjie — Frontend Engineer. Production-ready web applications and UI systems built with React, Remix, Next.js, and modern engineering practices.",
     },
   ];
 };
@@ -255,8 +255,8 @@ function Projects() {
             Selected Projects
           </h1>
           <p className="text-lg text-white/60 max-w-2xl">
-            A collection of modern web applications and design systems built with
-            cutting-edge technologies and best practices.
+            A selection of production-ready web apps and UI systems—built with a focus
+            on performance, maintainability, and real-world constraints.
           </p>
         </div>
 

@@ -13,7 +13,7 @@ export const meta: MetaFunction = () => {
     {
       name: "description",
       content:
-        "Get in touch with Ansumana Badjie - Frontend Developer. Available for strategic projects, collaborations, and discussions about modern web development.",
+        "Get in touch with Ansumana Badjie — Frontend Engineer. Available for product teams that need reliable, high-performance frontend delivery and clean integrations with real-world systems.",
     },
   ];
 };
@@ -129,9 +129,7 @@ const FormField = memo(({
               !hasValue && !isFocused ? "text-transparent" : "text-white"
             }`}
           >
-            <option value="" disabled hidden className="bg-slate-900 text-white/40">
-              Select project type
-            </option>
+            <option value="" disabled hidden />
             {options?.map((option) => (
               <option key={option.value} value={option.value} className="bg-slate-900 text-white">
                 {option.label}
@@ -273,9 +271,10 @@ function Contact() {
                 <span className="block text-primary">Exceptional</span>
               </h1>
               <p className="text-lg text-white/70 leading-relaxed">
-                I specialize in crafting high-performance, visually engaging digital
-                experiences. Whether you're launching a new product or elevating an
-                existing platform, let's discuss how we can bring your vision to life.
+                I help teams ship production-ready frontend: fast interfaces, scalable
+                UI architecture, and clean API integrations. If you're launching a new
+                product or improving an existing one, let's talk through scope,
+                constraints, and what “done” looks like in production.
               </p>
             </div>
 
@@ -288,7 +287,7 @@ function Contact() {
                 <div>
                   <p className="text-white font-semibold">Strategic Development</p>
                   <p className="text-white/60 text-sm">
-                    Focused on scalable solutions that deliver real business impact
+                    Focused on maintainable systems that scale with product complexity
                   </p>
                 </div>
               </div>
@@ -299,7 +298,7 @@ function Contact() {
                 <div>
                   <p className="text-white font-semibold">Modern Stack</p>
                   <p className="text-white/60 text-sm">
-                    React, Remix, TypeScript, and cutting-edge UI technologies
+                    React, Remix, TypeScript—plus performance, a11y, and testing discipline
                   </p>
                 </div>
               </div>
@@ -310,7 +309,7 @@ function Contact() {
                 <div>
                   <p className="text-white font-semibold">Fast Response</p>
                   <p className="text-white/60 text-sm">
-                    Typically responds within 24 hours
+                    Usually replies within 24 hours
                   </p>
                 </div>
               </div>
@@ -383,7 +382,7 @@ function Contact() {
                   Start a Conversation
                 </h2>
                 <p className="text-white/60 text-sm">
-                  Share your project details and I'll get back to you promptly.
+                  Share context, constraints, and timelines—I’ll respond with next steps.
                 </p>
               </div>
 

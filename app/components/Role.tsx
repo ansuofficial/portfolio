@@ -13,10 +13,10 @@ function Role({ styles = "" }: RoleProps) {
     >
       <div className="text-center space-y-2">
         <h1 className="text-white text-xl md:text-2xl font-display font-bold tracking-tight">
-          Frontend Developer
+          Frontend Engineer
         </h1>
         <p className="text-white/60 text-sm font-medium">
-          Digital Strategist & Engineer
+          Product-focused, performance-minded
         </p>
       </div>
     </div>

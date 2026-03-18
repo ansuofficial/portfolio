@@ -13,11 +13,11 @@ import { motion } from "motion/react";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Ansu Badjie | Frontend Developer & Digital Strategist" },
+    { title: "Ansu Badjie | Frontend Engineer" },
     {
       name: "description",
       content:
-        "Ansumana Badjie - Frontend Engineer and Digital Strategist. Crafting elegant, high-performance web experiences with TypeScript, React, and modern UI technologies.",
+        "Ansumana Badjie — Frontend Engineer building production-ready web applications with TypeScript, React, and Remix. Focused on performance, maintainable UI architecture, and accessible product experiences.",
     },
   ];
 };
@@ -106,7 +106,7 @@ export default function Index() {
               </motion.div>
             </div>
             <RandomQuote
-              styles="max-h-[8rem] lg:col-span-1 col-span-3 lg:ml-0 ml-auto lg:w-full w-[66%]"
+              styles="lg:col-span-1 col-span-3 lg:ml-0 ml-auto lg:w-full w-[66%]"
               quote={quote}
             />
           </div>

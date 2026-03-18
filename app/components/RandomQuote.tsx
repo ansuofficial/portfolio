@@ -20,7 +20,7 @@ function RandomQuote({ styles = "", quote }: RandomQuoteProps) {
       >
         What Drives Me
       </h1>
-      <blockquote className="text-white/80 text-base leading-relaxed italic">
+      <blockquote className="text-white/80 text-base leading-relaxed italic break-words hyphens-auto">
         "{quote.message}"
       </blockquote>
     </div>

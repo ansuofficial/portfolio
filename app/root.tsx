@@ -40,25 +40,25 @@ export const links: LinksFunction = () => {
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Ansu Badjie | Frontend Software Developer" },
+    { title: "Ansu Badjie | Frontend Engineer" },
     {
       name: "description",
       content:
-        "Portfolio of Ansu Badjie — a frontend software developer specializing in TypeScript, JavaScript, and modern UI development with Remix, React, Figma, and Tailwind CSS. Also a Python instructor with a strong passion for clean, functional, and visually engaging interfaces.",
+        "Portfolio of Ansu Badjie — a Frontend Engineer specializing in TypeScript, React, and production-ready web applications. I build maintainable UI architecture, integrate APIs, and ship fast, accessible experiences with Remix and modern tooling.",
     },
     { name: "author", content: "Ansu Badjie" },
     {
       name: "keywords",
       content:
-        "Ansu Badjie, Ansumana Badjie, Ansu Badjie Gambia, Ansumana Badjie Gambia, frontend developer, software developer, TypeScript, JavaScript, Python instructor, RemixJS, React developer, Tailwind CSS, web developer portfolio, creative developer",
+        "Ansu Badjie, Ansumana Badjie, frontend engineer, frontend developer, software engineer, TypeScript, JavaScript, React, Remix, Next.js, web performance, accessibility, UI architecture, design systems",
     },
 
     // --- OpenGraph (for Facebook, LinkedIn, etc.) ---
-    { property: "og:title", content: "Ansu Badjie | Frontend Software Developer" },
+    { property: "og:title", content: "Ansu Badjie | Frontend Engineer" },
     {
       property: "og:description",
       content:
-        "Creative frontend software developer with expertise in Remix, React, Figma, TypeScript, and Tailwind CSS. Passionate about crafting modern and functional web experiences.",
+        "Frontend Engineer focused on performance, scalable UI architecture, and real-world integrations. Building production-ready web applications with TypeScript, React, and Remix.",
     },
     { property: "og:image", content: "https://ansu-dev.vercel.app/ansu-dp-transparent.png" },
     { property: "og:type", content: "website" },
@@ -66,11 +66,11 @@ export const meta: MetaFunction = () => {
 
     // --- Twitter Cards ---
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Ansu Badjie | Frontend Software Developer" },
+    { name: "twitter:title", content: "Ansu Badjie | Frontend Engineer" },
     {
       name: "twitter:description",
       content:
-        "Portfolio of Ansu Badjie — frontend developer skilled in TypeScript, JavaScript, and RemixJS. Passionate about building modern web solutions.",
+        "Frontend Engineer building production-ready web applications with TypeScript, React, and Remix—fast, accessible, and maintainable by design.",
     },
     { name: "twitter:image", content: "https://ansu-dev.vercel.app/ansu-dp-transparent.png" },
   ];
@@ -93,13 +93,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
       "name": "Ansu Badjie",
       "url": "https://ansu-dev.vercel.app/",
       "image": "https://ansu-dev.vercel.app/ansu-dp-transparent.png",
-      "jobTitle": "Frontend Software Developer",
+      "jobTitle": "Frontend Engineer",
       "worksFor": {
         "@type": "Organization",
         "name": "Freelance / Independent"
       },
       "description":
-        "Ansu Badjie is a frontend software developer from The Gambia specializing in TypeScript, JavaScript, Remix, Figma, and React. Also a Python instructor passionate about sharing knowledge.",
+        "Ansu Badjie is a Frontend Engineer specializing in TypeScript, React, and Remix. Builds performance-focused, maintainable UI systems and integrates real-world APIs to ship production-ready web applications.",
       "sameAs": [
         "https://github.com/ansuofficial",
         "https://www.linkedin.com/in/ansu-badjie/",

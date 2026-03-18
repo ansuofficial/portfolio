@@ -7,7 +7,7 @@ interface AboutProps {
 function About({ styles = "" }: AboutProps) {
   return (
     <div
-      className={`glass rounded-2xl p-6 lg:p-8 space-y-4 ${styles}`}
+      className={`glass rounded-2xl p-6 lg:p-8 space-y-4 h-full max-h-[17.5rem] overflow-hidden flex flex-col ${styles}`}
       role="region"
       aria-labelledby="about-heading"
     >
@@ -15,14 +15,14 @@ function About({ styles = "" }: AboutProps) {
         id="about-heading"
         className="text-white text-2xl font-display font-bold tracking-tight"
       >
-        Who the hell am I?
+        Who am I?
       </h1>
-      <p className="text-white/80 text-base leading-relaxed tracking-wide text-balance">
-      I'm Ansumana, a Software Engineer dedicated to creating elegant,
-high-performance, and user-focused digital solutions across platforms. I combine
-design precision with strong engineering principles, building scalable, secure,
-and accessible software systems that deliver real-world impact. I'm driven by a simple goal: to craft intuitive digital experiences that
-inspire trust, perform exceptionally, and endure over time.
+      <p className="text-white/80 text-base leading-relaxed tracking-wide text-balance overflow-auto pr-1">
+        I'm Ansumana, a Frontend Engineer who builds production-ready web
+        applications with a focus on performance, maintainable architecture, and
+        accessibility. I work comfortably across UI systems and real-world
+        integrations—turning product requirements into reliable, scalable
+        experiences that ship, evolve, and stay fast.
       </p>
     </div>
   );
