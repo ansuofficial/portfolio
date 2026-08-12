@@ -1,18 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+  --color-primary: #ff3e00;
+  --color-secondary: #22c55e;
+  --color-base: #f3f4f6;
+  --color-hover-shadow: #0F0F0F;
+
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-display: "Cal Sans", "Plus Jakarta Sans", system-ui, sans-serif;
+
+  --spacing-18: 4.5rem;
+  --spacing-88: 22rem;
+
+  --radius-4xl: 2rem;
+
+  --backdrop-blur-xs: 2px;
+}
 
 @layer base {
   html {
-    @apply antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  
+
   body {
-    @apply text-white;
+    color: white;
     background-color: #0a0e14;
-    background-image: 
+    background-image:
       repeating-linear-gradient(
         to right,
         rgba(255, 255, 255, 0.06) 0px,
@@ -34,23 +49,27 @@
     position: relative;
     min-height: 100vh;
   }
-  
+
   body > * {
     position: relative;
     z-index: 1;
   }
 }
 
-@layer utilities {
-  .glass {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10;
-  }
-  
-  .glass-strong {
-    @apply bg-white/10 backdrop-blur-2xl border border-white/20;
-  }
-  
-  .text-balance {
-    text-wrap: balance;
-  }
+@utility glass {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+@utility glass-strong {
+  background-color: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+}
+
+@utility text-balance {
+  text-wrap: balance;
 }
