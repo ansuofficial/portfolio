@@ -7,7 +7,7 @@ interface AboutProps {
 function About({ styles = "" }: AboutProps) {
   return (
     <div
-      className={`glass rounded-2xl p-6 lg:p-8 space-y-5 h-full flex flex-col ${styles}`}
+      className={`glass rounded-xl p-6 lg:p-8 space-y-5 h-full flex flex-col ${styles}`}
       role="region"
       aria-labelledby="about-heading"
       id="about"

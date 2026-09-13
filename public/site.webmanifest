@@ -1,6 +1,6 @@
 {
   "name": "Ansumana Badjie - Frontend Developer",
-  "short_name": "Ansu Badjie",
+  "short_name": "Ansu",
   "description": "Portfolio of Ansu Badjie - Frontend Developer",
   "icons": [
     {
@@ -15,7 +15,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#ff3e00",
+  "theme_color": "#10a882",
   "background_color": "#0a0e14",
   "display": "standalone",
   "start_url": "/"

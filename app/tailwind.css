@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #ff3e00;
+  --color-primary: #10a882;
   --color-secondary: #22c55e;
   --color-base: #f3f4f6;
   --color-hover-shadow: #0F0F0F;
@@ -43,7 +43,7 @@
         transparent 24px
       ),
       radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 40%),
-      radial-gradient(circle at 80% 80%, rgba(255, 62, 0, 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(16, 168, 130, 0.04) 0%, transparent 50%),
       linear-gradient(180deg, rgba(10, 14, 20, 0.95) 0%, rgba(5, 8, 12, 1) 100%);
     background-attachment: fixed;
     position: relative;

@@ -7,7 +7,7 @@ interface ProfileProps {
 function Profile({ styles = "" }: ProfileProps) {
   return (
     <div
-      className={`glass rounded-2xl p-6 flex flex-col justify-center items-center space-y-4 ${styles}`}
+      className={`glass rounded-xl p-6 flex flex-col justify-center items-center space-y-4 ${styles}`}
       role="region"
       aria-label="Profile Information"
     >

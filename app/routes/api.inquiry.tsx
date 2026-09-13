@@ -144,7 +144,7 @@ async function handleSubmit(formData: FormData) {
       subject: `New Inquiry — Budget: ${budgetLabel}`,
       html: `
         <div style="font-family: system-ui, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #ff3e00; margin-bottom: 4px;">New Portfolio Inquiry</h2>
+          <h2 style="color: #10a882; margin-bottom: 4px;">New Portfolio Inquiry</h2>
           <p style="color: #666; font-size: 14px; margin-top: 0;">via AI-powered inquiry form</p>
           
           <div style="background: #f9fafb; border-radius: 12px; padding: 20px; margin: 20px 0;">
@@ -154,7 +154,7 @@ async function handleSubmit(formData: FormData) {
 
           <div style="background: #f9fafb; border-radius: 12px; padding: 20px; margin: 20px 0;">
             <h3 style="margin-top: 0; font-size: 14px; color: #888; text-transform: uppercase; letter-spacing: 1px;">Budget Range</h3>
-            <p style="color: #ff3e00; font-weight: 600; font-size: 18px;">${budgetLabel}</p>
+            <p style="color: #10a882; font-weight: 600; font-size: 18px;">${budgetLabel}</p>
           </div>
 
           ${

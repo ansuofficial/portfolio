@@ -17,7 +17,7 @@ export const meta: MetaFunction = () => {
 function Learn() {
   return (
     <main className="mt-8">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-12">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-12">
         <motion.div
           className="flex flex-col items-center justify-center min-h-[60vh] text-center space-y-8"
           initial={{ opacity: 0, translateY: 20 }}
@@ -27,12 +27,12 @@ function Learn() {
           {/* Icon */}
           <div className="relative">
             <motion.div
-              className="w-20 h-20 rounded-2xl glass-strong flex items-center justify-center"
+              className="w-20 h-20 rounded-xl glass-strong flex items-center justify-center"
               animate={{
                 boxShadow: [
-                  "0 0 0 0 rgba(255, 62, 0, 0)",
-                  "0 0 0 12px rgba(255, 62, 0, 0.08)",
-                  "0 0 0 0 rgba(255, 62, 0, 0)",
+                  "0 0 0 0 rgba(16, 168, 130, 0)",
+                  "0 0 0 12px rgba(16, 168, 130, 0.08)",
+                  "0 0 0 0 rgba(16, 168, 130, 0)",
                 ],
               }}
               transition={{
@@ -81,7 +81,7 @@ function Learn() {
               href="https://x.com/ansucoder"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary/10 border border-primary/20 text-primary text-sm font-semibold hover:bg-primary/15 hover:border-primary/30 transition-all duration-200"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary/10 border border-primary/20 text-primary text-sm font-semibold hover:bg-primary/15 hover:border-primary/30 transition-all duration-200"
             >
               <HiOutlineBookOpen className="w-4 h-4" />
               Follow for updates

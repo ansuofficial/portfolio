@@ -38,7 +38,7 @@ const experiences: Experience[] = [
 function WorkExperience({ styles = "" }: WorkExperienceProps) {
   return (
     <div
-      className={`glass rounded-2xl p-6 lg:p-8 space-y-5 flex flex-col h-full ${styles}`}
+      className={`glass rounded-xl p-6 lg:p-8 space-y-5 flex flex-col h-full ${styles}`}
       role="region"
       aria-labelledby="experience-heading"
     >

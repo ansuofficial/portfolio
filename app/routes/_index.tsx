@@ -19,10 +19,10 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <main className="mt-8">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 space-y-6 mb-12">
+    <main className="mt-10">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 space-y-6 mb-12">
         {/* Row 1: About Me + Impact Metrics */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/*  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <motion.div
             className="md:col-span-2"
             initial={{ opacity: 0, translateY: 20 }}
@@ -43,7 +43,7 @@ export default function Index() {
           >
             <ImpactMetrics />
           </motion.div>
-        </div>
+        </div> */}
 
         {/* Row 2: AI Inquiry Block (full width) */}
         <motion.div

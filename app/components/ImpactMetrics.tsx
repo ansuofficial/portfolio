@@ -19,7 +19,7 @@ const stats: StatItem[] = [
 function ImpactMetrics({ styles = "" }: ImpactMetricsProps) {
   return (
     <div
-      className={`glass-strong rounded-2xl p-6 lg:p-8 space-y-5 flex flex-col h-full ${styles}`}
+      className={`glass-strong rounded-xl p-6 lg:p-8 space-y-5 flex flex-col h-full ${styles}`}
       role="region"
       aria-label="Impact Metrics"
     >

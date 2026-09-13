@@ -11,9 +11,18 @@ import {
 import { LiaLinkedin } from "react-icons/lia";
 import { FaWhatsapp } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
+import { Button } from "~/components/ui/button";
+import { Label } from "~/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "~/components/ui/select";
+import { Textarea } from "~/components/ui/textarea";
 
 const BUDGET_OPTIONS = [
-  { value: "", label: "Select your estimated budget" },
   { value: "500-1000", label: "$500 — $1,000" },
   { value: "1000-3000", label: "$1,000 — $3,000" },
   { value: "3000-5000", label: "$3,000 — $5,000" },
@@ -32,6 +41,10 @@ const ACCEPTED_FILE_TYPES = [
 ];
 
 const MAX_FILES = 3;
+
+const INQUIRY_PLACEHOLDER = `Describe what you need — ask about anything, not just what's listed.
+
+e.g. consultancy · private lessons · web development`;
 
 function getFileIcon(type: string) {
   if (type.startsWith("image/")) return HiOutlinePhoto;
@@ -150,7 +163,7 @@ function AIInquiry() {
 
   return (
     <div
-      className="glass rounded-2xl p-6 lg:p-8 space-y-6"
+      className="glass rounded-xl p-6 lg:p-8 space-y-6"
       role="region"
       aria-labelledby="inquiry-heading"
       id="inquiry"
@@ -170,36 +183,37 @@ function AIInquiry() {
 
       {/* Status Messages */}
       {submitFetcher.data?.success && (
-        <div className="bg-secondary/15 border border-secondary/30 rounded-xl px-4 py-3 text-secondary text-sm font-medium" role="alert">
+        <div className="bg-secondary/15 border border-secondary/30 rounded-lg px-4 py-3 text-secondary text-sm font-medium" role="alert">
           {submitFetcher.data.success}
         </div>
       )}
       {(submitFetcher.data?.error || rewriteFetcher.data?.error) && (
-        <div className="bg-red-500/15 border border-red-500/30 rounded-xl px-4 py-3 text-red-400 text-sm font-medium" role="alert">
+        <div className="bg-red-500/15 border border-red-500/30 rounded-lg px-4 py-3 text-red-400 text-sm font-medium" role="alert">
           {submitFetcher.data?.error || rewriteFetcher.data?.error}
         </div>
       )}
 
       {/* Text Area */}
       <div className="relative">
-        <textarea
+        <Textarea
           value={message}
           onChange={(e) => {
             setMessage(e.target.value);
             setIsImproved(false);
           }}
-          placeholder="e.g., We need a web platform for our organization that handles public services, but our current site is slow and hard to navigate..."
+          placeholder={INQUIRY_PLACEHOLDER}
           rows={5}
-          className="w-full px-4 py-4 rounded-xl bg-white/5 text-white border border-white/10 outline-none transition-all duration-200 resize-none placeholder:text-white/30 focus:border-primary/50 focus:ring-2 focus:ring-primary/15 focus:bg-white/8 text-sm leading-relaxed"
           aria-label="Describe your business problem"
         />
 
         {/* AI Rewrite Button */}
         <div className="flex items-center justify-between mt-3">
-          <button
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
             onClick={handleRewrite}
             disabled={!message.trim() || isRewriting}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-white/70 text-xs font-semibold tracking-wide hover:bg-white/10 hover:text-white hover:border-white/20 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
             aria-label="Improve message with AI"
           >
             <HiOutlineSparkles
@@ -210,7 +224,7 @@ function AIInquiry() {
               : isImproved
               ? "Improve again"
               : "Improve my message"}
-          </button>
+          </Button>
           {isImproved && (
             <span className="text-secondary/70 text-xs font-medium flex items-center gap-1">
               <HiOutlineSparkles className="w-3 h-3" />
@@ -226,7 +240,7 @@ function AIInquiry() {
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
         onClick={() => fileInputRef.current?.click()}
-        className={`relative rounded-xl border-2 border-dashed transition-all duration-200 cursor-pointer ${
+        className={`relative rounded-lg border-2 border-dashed transition-all duration-200 cursor-pointer ${
           isDragging
             ? "border-primary/50 bg-primary/5"
             : "border-white/10 hover:border-white/20 hover:bg-white/3"
@@ -295,47 +309,30 @@ function AIInquiry() {
 
       {/* Budget + Submit Row */}
       <div className="flex flex-col sm:flex-row gap-3">
-        {/* Budget Selector */}
-        <div className="relative flex-1">
-          <select
-            value={budget}
-            onChange={(e) => setBudget(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl bg-white/5 text-white border border-white/10 outline-none transition-all duration-200 appearance-none cursor-pointer text-sm focus:border-primary/50 focus:ring-2 focus:ring-primary/15 focus:bg-white/8"
-            aria-label="Select estimated budget"
-          >
-            {BUDGET_OPTIONS.map((option) => (
-              <option
-                key={option.value}
-                value={option.value}
-                className="bg-[#0a0e14] text-white"
-                disabled={option.value === ""}
-              >
-                {option.label}
-              </option>
-            ))}
-          </select>
-          <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
-            <svg
-              className="w-4 h-4 text-white/40"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </div>
+        <div className="relative flex-1 space-y-2">
+          <Label htmlFor="budget-select" className="sr-only">
+            Estimated budget
+          </Label>
+          <Select value={budget || undefined} onValueChange={setBudget}>
+            <SelectTrigger id="budget-select" aria-label="Select estimated budget">
+              <SelectValue placeholder="Select your estimated budget" />
+            </SelectTrigger>
+            <SelectContent>
+              {BUDGET_OPTIONS.map((option) => (
+                <SelectItem key={option.value} value={option.value}>
+                  {option.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
 
-        {/* Submit Button */}
-        <button
+        <Button
+          type="button"
+          size="lg"
           onClick={handleSubmit}
           disabled={!canSubmit || isSubmitting}
-          className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-white font-semibold text-sm transition-all duration-200 hover:bg-primary/90 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 shadow-lg shadow-primary/20 whitespace-nowrap"
+          className="whitespace-nowrap"
         >
           {isSubmitting ? (
             <>
@@ -348,7 +345,7 @@ function AIInquiry() {
               Send Inquiry
             </>
           )}
-        </button>
+        </Button>
       </div>
 
       {/* Minimal Contact Strip */}
