@@ -4,7 +4,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { Resend } from "resend";
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY || "";
-const RESEND_API_KEY = process.env.RESEND_API_KEY || "REMOVED_RESEND_API_KEY";
+const RESEND_API_KEY = process.env.RESEND_API_KEY || "";
 
 // Simple in-memory rate limiting
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
@@ -117,6 +117,13 @@ async function handleSubmit(formData: FormData) {
     return json(
       { error: "Please select a budget range." },
       { status: 400 }
+    );
+  }
+
+  if (!RESEND_API_KEY) {
+    return json(
+      { error: "Email service is not configured. Please contact directly." },
+      { status: 500 }
     );
   }
 
