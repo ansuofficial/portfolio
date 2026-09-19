@@ -172,11 +172,12 @@ function AIInquiry() {
       <div className="space-y-2">
         <h2
           id="inquiry-heading"
-          className="text-white text-xl md:text-2xl font-display font-bold tracking-tight"
+          className="text-xl md:text-2xl font-display font-bold tracking-tight"
+          style={{ color: "var(--text)" }}
         >
           What problem is your business facing?
         </h2>
-        <p className="text-white/50 text-sm">
+        <p style={{ color: "var(--text-subtle)" }} className="text-sm">
           Describe your challenge — I'll help you articulate it clearly.
         </p>
       </div>
@@ -243,8 +244,25 @@ function AIInquiry() {
         className={`relative rounded-lg border-2 border-dashed transition-all duration-200 cursor-pointer ${
           isDragging
             ? "border-primary/50 bg-primary/5"
-            : "border-white/10 hover:border-white/20 hover:bg-white/3"
+            : ""
         } ${files.length >= MAX_FILES ? "opacity-50 pointer-events-none" : ""}`}
+        style={
+          !isDragging
+            ? {
+                borderColor: "var(--input-border)",
+              }
+            : undefined
+        }
+        onMouseEnter={(e) => {
+          if (!isDragging) {
+            (e.currentTarget as HTMLDivElement).style.borderColor = "var(--text-faint)";
+          }
+        }}
+        onMouseLeave={(e) => {
+          if (!isDragging) {
+            (e.currentTarget as HTMLDivElement).style.borderColor = "var(--input-border)";
+          }
+        }}
       >
         <input
           ref={fileInputRef}
@@ -257,17 +275,16 @@ function AIInquiry() {
         />
         <div className="flex items-center gap-3 px-4 py-3">
           <HiOutlineDocumentArrowUp
-            className={`w-5 h-5 flex-shrink-0 ${
-              isDragging ? "text-primary" : "text-white/40"
-            }`}
+            className="w-5 h-5 flex-shrink-0"
+            style={{ color: isDragging ? undefined : "var(--text-faint)" }}
           />
           <div>
-            <p className="text-white/60 text-xs font-medium">
+            <p className="text-xs font-medium" style={{ color: "var(--text-subtle)" }}>
               {isDragging
                 ? "Drop files here"
                 : "Drag & drop files or click to browse"}
             </p>
-            <p className="text-white/30 text-[11px]">
+            <p className="text-[11px]" style={{ color: "var(--text-faint)" }}>
               PDF, images, or docs — max {MAX_FILES} files
             </p>
           </div>
@@ -282,13 +299,17 @@ function AIInquiry() {
             return (
               <div
                 key={`${file.name}-${index}`}
-                className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 border border-white/10"
+                className="flex items-center gap-2 px-3 py-2 rounded-lg"
+                style={{
+                  backgroundColor: "var(--input-bg)",
+                  border: "1px solid var(--input-border)",
+                }}
               >
-                <FileIcon className="w-4 h-4 text-white/50 flex-shrink-0" />
-                <span className="text-white/70 text-xs font-medium truncate max-w-[140px]">
+                <FileIcon className="w-4 h-4 flex-shrink-0" style={{ color: "var(--text-subtle)" }} />
+                <span className="text-xs font-medium truncate max-w-[140px]" style={{ color: "var(--text-muted)" }}>
                   {file.name}
                 </span>
-                <span className="text-white/30 text-[10px]">
+                <span className="text-[10px]" style={{ color: "var(--text-faint)" }}>
                   {formatFileSize(file.size)}
                 </span>
                 <button
@@ -296,7 +317,14 @@ function AIInquiry() {
                     e.stopPropagation();
                     removeFile(index);
                   }}
-                  className="text-white/30 hover:text-white/60 transition-colors ml-1"
+                  className="transition-colors ml-1"
+                  style={{ color: "var(--text-faint)" }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = "var(--text-subtle)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = "var(--text-faint)";
+                  }}
                   aria-label={`Remove ${file.name}`}
                 >
                   <HiOutlineXMark className="w-3.5 h-3.5" />
@@ -349,11 +377,17 @@ function AIInquiry() {
       </div>
 
       {/* Minimal Contact Strip */}
-      <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div
+        className="h-px"
+        style={{
+          backgroundImage: `linear-gradient(to right, transparent, var(--divider), transparent)`,
+        }}
+      />
       <div className="flex items-center justify-center gap-6 flex-wrap">
         <a
           href="mailto:ansucoder@gmail.com"
-          className="flex items-center gap-2 text-white/50 hover:text-white transition-colors text-xs font-medium group"
+          className="flex items-center gap-2 transition-colors text-xs font-medium group"
+          style={{ color: "var(--text-subtle)" }}
           aria-label="Email"
         >
           <HiOutlineMail className="w-4 h-4 group-hover:text-primary transition-colors" />
@@ -363,7 +397,8 @@ function AIInquiry() {
           href="https://www.linkedin.com/in/ansu-badjie-3a979b280/"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-white/50 hover:text-white transition-colors text-xs font-medium group"
+          className="flex items-center gap-2 transition-colors text-xs font-medium group"
+          style={{ color: "var(--text-subtle)" }}
           aria-label="LinkedIn"
         >
           <LiaLinkedin className="w-4 h-4 group-hover:text-primary transition-colors" />
@@ -373,7 +408,8 @@ function AIInquiry() {
           href="https://wa.me/2203338111"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-white/50 hover:text-white transition-colors text-xs font-medium group"
+          className="flex items-center gap-2 transition-colors text-xs font-medium group"
+          style={{ color: "var(--text-subtle)" }}
           aria-label="WhatsApp"
         >
           <FaWhatsapp className="w-4 h-4 group-hover:text-secondary transition-colors" />

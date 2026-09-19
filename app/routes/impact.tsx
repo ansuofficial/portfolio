@@ -231,7 +231,13 @@ const ProjectCard = memo(({ project, index }: ProjectCardProps) => {
           className="block flex-shrink-0 w-full md:w-[480px] lg:w-[520px]"
           aria-label={`View ${project.title} project`}
         >
-          <div className="relative overflow-hidden rounded-xl border border-white/10 bg-white/5">
+          <div
+            className="relative overflow-hidden rounded-xl"
+            style={{
+              border: "1px solid var(--glass-border)",
+              backgroundColor: "var(--glass-bg)",
+            }}
+          >
             <img
               src={project.thumbnail}
               alt={project.title}
@@ -240,21 +246,32 @@ const ProjectCard = memo(({ project, index }: ProjectCardProps) => {
               width={520}
               height={320}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style={{
+                background: `linear-gradient(to top, var(--card-image-overlay), transparent)`,
+              }}
+            />
           </div>
         </Link>
 
         {/* Project Content */}
         <div className="flex-1 flex flex-col gap-4 mt-6 md:mt-0">
-          <div className="glass rounded-xl p-6 lg:p-8 space-y-4 transition-all duration-300 group-hover:bg-white/8 group-hover:shadow-xl group-hover:shadow-black/20">
+          <div className="glass rounded-xl p-6 lg:p-8 space-y-4 transition-all duration-300">
             {/* Header */}
             <div className="space-y-3">
               {project.type && (
-                <span className="text-xs font-semibold text-white/50 uppercase tracking-wider">
+                <span
+                  className="text-xs font-semibold uppercase tracking-wider"
+                  style={{ color: "var(--text-subtle)" }}
+                >
                   {project.type}
                 </span>
               )}
-              <h3 className="text-2xl lg:text-3xl font-display font-bold text-white tracking-tight leading-tight">
+              <h3
+                className="text-2xl lg:text-3xl font-display font-bold tracking-tight leading-tight"
+                style={{ color: "var(--text)" }}
+              >
                 {project.title}
               </h3>
             </div>
@@ -264,7 +281,10 @@ const ProjectCard = memo(({ project, index }: ProjectCardProps) => {
               <h4 className="text-xs font-semibold text-primary/80 uppercase tracking-wider">
                 The Problem
               </h4>
-              <p className="text-white/70 text-sm leading-relaxed">
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: "var(--text-muted)" }}
+              >
                 {project.problem}
               </p>
             </div>
@@ -274,21 +294,31 @@ const ProjectCard = memo(({ project, index }: ProjectCardProps) => {
               <h4 className="text-xs font-semibold text-secondary/80 uppercase tracking-wider">
                 What I Built
               </h4>
-              <p className="text-white/70 text-sm leading-relaxed">
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: "var(--text-muted)" }}
+              >
                 {project.solution}
               </p>
             </div>
 
             {/* Results */}
-            <div className="space-y-2 pt-2 border-t border-white/10">
-              <h4 className="text-xs font-semibold text-white/50 uppercase tracking-wider">
+            <div
+              className="space-y-2 pt-2"
+              style={{ borderTop: "1px solid var(--divider)" }}
+            >
+              <h4
+                className="text-xs font-semibold uppercase tracking-wider"
+                style={{ color: "var(--text-subtle)" }}
+              >
                 Results
               </h4>
               <ul className="space-y-1">
                 {project.results.map((result, i) => (
                   <li
                     key={i}
-                    className="flex items-center gap-2 text-sm text-white/60"
+                    className="flex items-center gap-2 text-sm"
+                    style={{ color: "var(--text-subtle)" }}
                   >
                     <span className="w-1 h-1 rounded-full bg-primary flex-shrink-0" />
                     {result}
@@ -341,7 +371,10 @@ function Impact() {
           transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
         >
           <div className="flex items-center justify-between gap-4">
-            <h1 className="text-4xl md:text-5xl font-display font-bold text-white tracking-tight">
+            <h1
+              className="text-4xl md:text-5xl font-display font-bold tracking-tight"
+              style={{ color: "var(--text)" }}
+            >
               Real Impact
             </h1>
             <a
@@ -366,7 +399,10 @@ function Impact() {
               </svg>
             </a>
           </div>
-          <p className="text-lg text-white/60 max-w-2xl">
+          <p
+            className="text-lg max-w-2xl"
+            style={{ color: "var(--text-subtle)" }}
+          >
             Software I've built for real organizations solving real problems —
             with measurable results you can verify.
           </p>

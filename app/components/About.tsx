@@ -14,7 +14,10 @@ function About({ styles = "" }: AboutProps) {
     >
       <div className="flex items-center gap-4">
         <div className="relative">
-          <div className="h-14 w-14 md:h-16 md:w-16 relative rounded-full overflow-hidden ring-2 ring-white/15">
+          <div
+            className="h-14 w-14 md:h-16 md:w-16 relative rounded-full overflow-hidden ring-2"
+            style={{ ringColor: "var(--ring)" } as React.CSSProperties}
+          >
             <img
               className="object-cover w-full h-full object-[center_top] scale-105"
               src="/ansu-dp-transparent.png"
@@ -23,12 +26,16 @@ function About({ styles = "" }: AboutProps) {
               height={64}
             />
           </div>
-          <div className="absolute -bottom-0.5 -right-0.5 h-4 w-4 bg-secondary rounded-full border-2 border-[#0a0e14]" />
+          <div
+            className="absolute -bottom-0.5 -right-0.5 h-4 w-4 bg-secondary rounded-full border-2"
+            style={{ borderColor: "var(--bg)" }}
+          />
         </div>
         <div>
           <h1
             id="about-heading"
-            className="text-white text-2xl md:text-3xl font-display font-bold tracking-tight"
+            className="text-2xl md:text-3xl font-display font-bold tracking-tight"
+            style={{ color: "var(--text)" }}
           >
             Ansumana Badjie
           </h1>
@@ -38,9 +45,17 @@ function About({ styles = "" }: AboutProps) {
         </div>
       </div>
 
-      <div className="h-px bg-gradient-to-r from-white/15 via-white/5 to-transparent" />
+      <div
+        className="h-px"
+        style={{
+          backgroundImage: `linear-gradient(to right, var(--divider), transparent)`,
+        }}
+      />
 
-      <p className="text-white/80 text-base leading-relaxed tracking-wide text-balance">
+      <p
+        className="text-base leading-relaxed tracking-wide text-balance"
+        style={{ color: "var(--text-muted)" }}
+      >
         I build software that solves real problems — from government platforms
         handling public-facing services to multi-service consumer apps processing
         real transactions. I bring the full picture: architecture, performance,

@@ -53,20 +53,40 @@ function NavBar() {
 
   return (
     <nav
-      className="fixed top-8 left-0 right-0 z-50 px-4 sm:px-6"
+      className="fixed top-11 left-0 right-0 z-40 px-4 sm:px-6"
       role="navigation"
       aria-label="Main navigation"
     >
       <div className="max-w-lg mx-auto">
         {/* Desktop Navigation - Floating Capsule */}
-        <div className="hidden md:flex items-center justify-center gap-x-0.5 bg-white/3 backdrop-blur-2xl rounded-full px-3 py-2 border border-white/[0.07] shadow-lg shadow-black/20">
+        <div
+          className="hidden md:flex items-center justify-center gap-x-0.5 backdrop-blur-2xl rounded-full px-3 py-2 shadow-lg"
+          style={{
+            backgroundColor: "var(--nav-bg)",
+            borderWidth: "1px",
+            borderStyle: "solid",
+            borderColor: "var(--glass-border)",
+            boxShadow: `0 4px 12px var(--nav-shadow)`,
+          }}
+        >
           {navLinks.map((navlink) =>
             navlink.isHash ? (
               <NavLink
                 key={navlink.href}
                 to={navlink.href}
                 onClick={(e) => handleHashClick(e, navlink.href)}
-                className="text-xs font-medium px-2.5 py-1 rounded-full transition-all duration-200 text-white/70 hover:text-white hover:bg-white/5"
+                className="text-xs font-medium px-2.5 py-1 rounded-full transition-all duration-200"
+                style={{
+                  color: "var(--nav-text)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = "var(--nav-text-hover)";
+                  e.currentTarget.style.backgroundColor = "var(--nav-item-hover-bg)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = "var(--nav-text)";
+                  e.currentTarget.style.backgroundColor = "transparent";
+                }}
               >
                 {navlink.name}
               </NavLink>
@@ -76,11 +96,28 @@ function NavBar() {
                 to={navlink.href}
                 className={({ isActive }) =>
                   `text-xs font-medium px-2.5 py-1 rounded-full transition-all duration-200 ${
-                    isActive
-                      ? "text-primary"
-                      : "text-white/70 hover:text-white hover:bg-white/5"
+                    isActive ? "text-primary" : ""
                   }`
                 }
+                style={({ isActive }) =>
+                  isActive
+                    ? {}
+                    : { color: "var(--nav-text)" }
+                }
+                onMouseEnter={(e) => {
+                  const isActive = e.currentTarget.classList.contains("text-primary");
+                  if (!isActive) {
+                    e.currentTarget.style.color = "var(--nav-text-hover)";
+                    e.currentTarget.style.backgroundColor = "var(--nav-item-hover-bg)";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  const isActive = e.currentTarget.classList.contains("text-primary");
+                  if (!isActive) {
+                    e.currentTarget.style.color = "var(--nav-text)";
+                    e.currentTarget.style.backgroundColor = "transparent";
+                  }
+                }}
               >
                 {navlink.name}
               </NavLink>
@@ -90,12 +127,30 @@ function NavBar() {
 
         {/* Mobile Menu Button - Floating Capsule */}
         <div className="md:hidden flex justify-end">
-          <div className="bg-white/3 backdrop-blur-2xl rounded-full px-3 py-1.5 border border-white/[0.07] shadow-lg shadow-black/20">
+          <div
+            className="backdrop-blur-2xl rounded-full px-3 py-1.5 shadow-lg"
+            style={{
+              backgroundColor: "var(--nav-bg)",
+              borderWidth: "1px",
+              borderStyle: "solid",
+              borderColor: "var(--glass-border)",
+              boxShadow: `0 4px 12px var(--nav-shadow)`,
+            }}
+          >
             <button
-              className="text-white/80 hover:text-white p-0.5 rounded-full hover:bg-white/5 transition-colors"
+              className="p-0.5 rounded-full transition-colors"
+              style={{ color: "var(--text-muted)" }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = "var(--text)";
+                e.currentTarget.style.backgroundColor = "var(--nav-item-hover-bg)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = "var(--text-muted)";
+                e.currentTarget.style.backgroundColor = "transparent";
+              }}
             >
               {isMobileMenuOpen ? (
                 <HiX className="w-5 h-5" />
@@ -108,7 +163,16 @@ function NavBar() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-2 bg-white/3 backdrop-blur-2xl rounded-xl px-3 py-3 border border-white/[0.07] shadow-lg shadow-black/20">
+          <div
+            className="md:hidden mt-2 backdrop-blur-2xl rounded-xl px-3 py-3 shadow-lg"
+            style={{
+              backgroundColor: "var(--nav-bg)",
+              borderWidth: "1px",
+              borderStyle: "solid",
+              borderColor: "var(--glass-border)",
+              boxShadow: `0 4px 12px var(--nav-shadow)`,
+            }}
+          >
             <div className="flex flex-col gap-1">
               {navLinks.map((navlink) =>
                 navlink.isHash ? (
@@ -116,7 +180,8 @@ function NavBar() {
                     key={navlink.href}
                     to={navlink.href}
                     onClick={(e) => handleHashClick(e, navlink.href)}
-                    className="text-xs font-medium px-2.5 py-2 rounded-md transition-all duration-200 text-white/70 hover:text-white hover:bg-white/5"
+                    className="text-xs font-medium px-2.5 py-2 rounded-md transition-all duration-200"
+                    style={{ color: "var(--nav-text)" }}
                   >
                     {navlink.name}
                   </NavLink>
@@ -127,10 +192,13 @@ function NavBar() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={({ isActive }) =>
                       `text-xs font-medium px-2.5 py-2 rounded-md transition-all duration-200 ${
-                        isActive
-                          ? "text-primary"
-                          : "text-white/70 hover:text-white hover:bg-white/5"
+                        isActive ? "text-primary" : ""
                       }`
+                    }
+                    style={({ isActive }) =>
+                      isActive
+                        ? {}
+                        : { color: "var(--nav-text)" }
                     }
                   >
                     {navlink.name}

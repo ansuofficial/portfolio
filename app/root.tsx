@@ -8,6 +8,8 @@ import {
 import "./tailwind.css";
 import type { MetaFunction, LinksFunction } from "@remix-run/node";
 import NavBar from "./components/NavBar";
+import { ThemeProvider } from "./components/ThemeProvider";
+import ThemeToggle from "./components/ThemeToggle";
 
 export const links: LinksFunction = () => {
   return [
@@ -77,14 +79,20 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+// Inline script to prevent FOUC — runs before React hydrates
+const themeInitScript = `(function(){var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'}document.documentElement.setAttribute('data-theme',t)})();`;
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        <script
+          dangerouslySetInnerHTML={{ __html: themeInitScript }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -116,9 +124,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         />
       </head>
       <body className="overflow-x-hidden min-h-screen">
-        <NavBar />
-
-        <div className="pt-24 md:pt-20">{children}</div>
+        <ThemeProvider>
+          <NavBar />
+          <ThemeToggle />
+          <div className="pt-24">{children}</div>
+        </ThemeProvider>
         <ScrollRestoration />
         <Scripts />
       </body>

@@ -12,7 +12,10 @@ function Profile({ styles = "" }: ProfileProps) {
       aria-label="Profile Information"
     >
       <div className="relative">
-        <div className="h-32 w-32 md:h-40 md:w-40 relative rounded-full overflow-hidden ring-4 ring-white/10">
+        <div
+          className="h-32 w-32 md:h-40 md:w-40 relative rounded-full overflow-hidden ring-4"
+          style={{ "--tw-ring-color": "var(--ring)" } as React.CSSProperties}
+        >
           <img
             className="object-cover w-full h-full object-[center_top] scale-105"
             src="/ansu-dp-transparent.png"
@@ -22,9 +25,15 @@ function Profile({ styles = "" }: ProfileProps) {
             height={160}
           />
         </div>
-        <div className="absolute -bottom-1 -right-1 h-6 w-6 bg-primary rounded-full border-2 border-slate-900" />
+        <div
+          className="absolute -bottom-1 -right-1 h-6 w-6 bg-primary rounded-full border-2"
+          style={{ borderColor: "var(--bg)" }}
+        />
       </div>
-      <h1 className="text-white text-xl md:text-2xl font-display font-bold text-center tracking-tight">
+      <h1
+        className="text-xl md:text-2xl font-display font-bold text-center tracking-tight"
+        style={{ color: "var(--text)" }}
+      >
         Ansumana Badjie
       </h1>
     </div>

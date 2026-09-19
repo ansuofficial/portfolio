@@ -10,10 +10,10 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-white shadow-lg shadow-primary/20 hover:bg-primary/90 hover:scale-[1.02] active:scale-[0.98] disabled:hover:scale-100",
+          "bg-primary text-white shadow-lg hover:bg-primary/90 hover:scale-[1.02] active:scale-[0.98] disabled:hover:scale-100",
         outline:
-          "border border-white/10 bg-white/5 text-white/70 hover:bg-white/10 hover:text-white hover:border-white/20",
-        ghost: "text-white/70 hover:bg-white/5 hover:text-white",
+          "border bg-[var(--input-bg)] hover:bg-[var(--nav-item-hover-bg)]",
+        ghost: "hover:bg-[var(--nav-item-hover-bg)]",
       },
       size: {
         default: "h-10 px-4 py-2",
@@ -34,6 +34,7 @@ function Button({
   variant,
   size,
   asChild = false,
+  style,
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
@@ -41,10 +42,29 @@ function Button({
   }) {
   const Comp = asChild ? Slot : "button";
 
+  const themeStyles: React.CSSProperties =
+    variant === "outline"
+      ? {
+          borderColor: "var(--input-border)",
+          color: "var(--text-muted)",
+          boxShadow: "var(--glass-shadow)",
+          ...style,
+        }
+      : variant === "ghost"
+      ? {
+          color: "var(--text-muted)",
+          ...style,
+        }
+      : {
+          boxShadow: `0 4px 12px var(--btn-primary-shadow)`,
+          ...style,
+        };
+
   return (
     <Comp
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
+      style={themeStyles}
       {...props}
     />
   );

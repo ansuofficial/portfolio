@@ -47,10 +47,16 @@ function Learn() {
 
           {/* Content */}
           <div className="space-y-4 max-w-lg">
-            <h1 className="text-4xl md:text-5xl font-display font-bold text-white tracking-tight">
+            <h1
+              className="text-4xl md:text-5xl font-display font-bold tracking-tight"
+              style={{ color: "var(--text)" }}
+            >
               Coming Soon
             </h1>
-            <p className="text-white/60 text-lg leading-relaxed">
+            <p
+              className="text-lg leading-relaxed"
+              style={{ color: "var(--text-subtle)" }}
+            >
               I'm writing about software architecture, performance engineering,
               API integrations, and lessons from shipping production software.
             </p>
@@ -68,7 +74,8 @@ function Learn() {
             ].map((topic) => (
               <span
                 key={topic}
-                className="px-4 py-2 rounded-full glass text-white/60 text-xs font-semibold tracking-wide"
+                className="px-4 py-2 rounded-full glass text-xs font-semibold tracking-wide"
+                style={{ color: "var(--text-subtle)" }}
               >
                 {topic}
               </span>

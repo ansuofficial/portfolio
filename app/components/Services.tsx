@@ -54,7 +54,8 @@ function Services({ styles = "" }: ServicesProps) {
     >
       <h2
         id="services-heading"
-        className="text-white text-xl md:text-2xl font-display font-bold tracking-tight"
+        className="text-xl md:text-2xl font-display font-bold tracking-tight"
+        style={{ color: "var(--text)" }}
       >
         My Services
       </h2>
@@ -70,10 +71,16 @@ function Services({ styles = "" }: ServicesProps) {
                 <Icon className="w-4 h-4 text-primary" />
               </div>
               <div className="space-y-0.5 min-w-0">
-                <span className="block text-white/85 font-medium text-sm tracking-wide">
+                <span
+                  className="block font-medium text-sm tracking-wide"
+                  style={{ color: "var(--text-muted)" }}
+                >
                   {service.title}
                 </span>
-                <p className="text-white/45 text-xs leading-snug line-clamp-1">
+                <p
+                  className="text-xs leading-snug line-clamp-1"
+                  style={{ color: "var(--text-subtle)" }}
+                >
                   {service.description}
                 </p>
               </div>

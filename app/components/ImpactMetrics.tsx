@@ -23,7 +23,10 @@ function ImpactMetrics({ styles = "" }: ImpactMetricsProps) {
       role="region"
       aria-label="Impact Metrics"
     >
-      <h2 className="text-white text-lg font-semibold tracking-tight">
+      <h2
+        className="text-lg font-semibold tracking-tight"
+        style={{ color: "var(--text)" }}
+      >
         Impact
       </h2>
       <div className="grid grid-cols-2 gap-4 flex-1">
@@ -32,17 +35,23 @@ function ImpactMetrics({ styles = "" }: ImpactMetricsProps) {
             key={stat.label}
             className="flex flex-col space-y-1 group"
           >
-            <span className="text-3xl lg:text-4xl font-bold text-white tabular-nums">
+            <span
+              className="text-3xl lg:text-4xl font-bold tabular-nums"
+              style={{ color: "var(--text)" }}
+            >
               {stat.value}
             </span>
-            <span className="text-xs text-white/60 font-medium tracking-wide leading-tight">
+            <span
+              className="text-xs font-medium tracking-wide leading-tight"
+              style={{ color: "var(--text-subtle)" }}
+            >
               {stat.label}
             </span>
           </div>
         ))}
       </div>
       <div className="pt-2 mt-auto">
-        <div className="flex items-center gap-2 text-sm text-white/80">
+        <div className="flex items-center gap-2 text-sm" style={{ color: "var(--text-muted)" }}>
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary" />
