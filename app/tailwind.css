@@ -1,56 +1,180 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+  --color-primary: #10a882;
+  --color-secondary: #22c55e;
+  --color-base: #f3f4f6;
+  --color-hover-shadow: #0F0F0F;
 
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-display: "Cal Sans", "Plus Jakarta Sans", system-ui, sans-serif;
+
+  --spacing-18: 4.5rem;
+  --spacing-88: 22rem;
+
+  --radius-4xl: 2rem;
+
+  --backdrop-blur-xs: 2px;
+}
+
+/* ═══════════════════════════════════════════
+   Theme Tokens — Light (default)
+   ═══════════════════════════════════════════ */
+:root {
+  --bg: #faf8f5;
+  --bg-deep: #f5f0eb;
+  --text: #1a1a2e;
+  --text-muted: rgba(26, 26, 46, 0.65);
+  --text-subtle: rgba(26, 26, 46, 0.45);
+  --text-faint: rgba(26, 26, 46, 0.3);
+
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(26, 26, 46, 0.08);
+  --glass-strong-bg: rgba(255, 255, 255, 0.85);
+  --glass-strong-border: rgba(26, 26, 46, 0.10);
+  --glass-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+
+  --input-bg: rgba(255, 255, 255, 0.8);
+  --input-border: rgba(26, 26, 46, 0.12);
+
+  --ring: rgba(26, 26, 46, 0.10);
+  --divider: rgba(26, 26, 46, 0.08);
+  --grid-line: rgba(26, 26, 46, 0.04);
+
+  --nav-bg: rgba(255, 255, 255, 0.6);
+  --nav-shadow: rgba(0, 0, 0, 0.06);
+  --nav-text: rgba(26, 26, 46, 0.6);
+  --nav-text-hover: #1a1a2e;
+  --nav-item-hover-bg: rgba(26, 26, 46, 0.05);
+
+  --select-content-bg: rgba(255, 255, 255, 0.97);
+  --select-item-hover: rgba(26, 26, 46, 0.06);
+  --select-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+
+  --status-dot-border: #faf8f5;
+  --timeline-dot-bg: #faf8f5;
+
+  --glow-primary: rgba(16, 168, 130, 0.06);
+  --glow-ambient: rgba(16, 168, 130, 0.03);
+
+  /* Overlay for image cards */
+  --card-image-overlay: rgba(0, 0, 0, 0.04);
+
+  /* Button shadows */
+  --btn-primary-shadow: rgba(16, 168, 130, 0.15);
+
+  color-scheme: light;
+}
+
+/* ═══════════════════════════════════════════
+   Theme Tokens — Dark
+   ═══════════════════════════════════════════ */
+[data-theme="dark"] {
+  --bg: #0a0e14;
+  --bg-deep: #05080c;
+  --text: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --text-subtle: rgba(255, 255, 255, 0.5);
+  --text-faint: rgba(255, 255, 255, 0.3);
+
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.10);
+  --glass-strong-bg: rgba(255, 255, 255, 0.10);
+  --glass-strong-border: rgba(255, 255, 255, 0.20);
+  --glass-shadow: none;
+
+  --input-bg: rgba(255, 255, 255, 0.05);
+  --input-border: rgba(255, 255, 255, 0.10);
+
+  --ring: rgba(255, 255, 255, 0.15);
+  --divider: rgba(255, 255, 255, 0.10);
+  --grid-line: rgba(255, 255, 255, 0.06);
+
+  --nav-bg: rgba(255, 255, 255, 0.03);
+  --nav-shadow: rgba(0, 0, 0, 0.20);
+  --nav-text: rgba(255, 255, 255, 0.7);
+  --nav-text-hover: #ffffff;
+  --nav-item-hover-bg: rgba(255, 255, 255, 0.05);
+
+  --select-content-bg: rgba(10, 14, 20, 0.95);
+  --select-item-hover: rgba(255, 255, 255, 0.10);
+  --select-shadow: 0 4px 16px rgba(0, 0, 0, 0.30);
+
+  --status-dot-border: #0a0e14;
+  --timeline-dot-bg: #0a0e14;
+
+  --glow-primary: rgba(16, 168, 130, 0.04);
+  --glow-ambient: rgba(255, 255, 255, 0.03);
+
+  --card-image-overlay: rgba(0, 0, 0, 0.20);
+
+  --btn-primary-shadow: rgba(16, 168, 130, 0.20);
+
+  color-scheme: dark;
+}
+
+/* ═══════════════════════════════════════════
+   Base Styles
+   ═══════════════════════════════════════════ */
 @layer base {
   html {
-    @apply antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  
+
   body {
-    @apply text-white;
-    background-color: #0a0e14;
-    background-image: 
+    color: var(--text);
+    background-color: var(--bg);
+    background-image:
       repeating-linear-gradient(
         to right,
-        rgba(255, 255, 255, 0.06) 0px,
-        rgba(255, 255, 255, 0.06) 1px,
+        var(--grid-line) 0px,
+        var(--grid-line) 1px,
         transparent 1px,
         transparent 24px
       ),
       repeating-linear-gradient(
         to bottom,
-        rgba(255, 255, 255, 0.06) 0px,
-        rgba(255, 255, 255, 0.06) 1px,
+        var(--grid-line) 0px,
+        var(--grid-line) 1px,
         transparent 1px,
         transparent 24px
       ),
-      radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 40%),
-      radial-gradient(circle at 80% 80%, rgba(255, 62, 0, 0.04) 0%, transparent 50%),
-      linear-gradient(180deg, rgba(10, 14, 20, 0.95) 0%, rgba(5, 8, 12, 1) 100%);
+      radial-gradient(circle at 20% 20%, var(--glow-ambient) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, var(--glow-primary) 0%, transparent 50%),
+      linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
     background-attachment: fixed;
     position: relative;
     min-height: 100vh;
+    transition: color 0.3s ease, background-color 0.3s ease;
   }
-  
+
   body > * {
     position: relative;
     z-index: 1;
   }
 }
 
-@layer utilities {
-  .glass {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10;
-  }
-  
-  .glass-strong {
-    @apply bg-white/10 backdrop-blur-2xl border border-white/20;
-  }
-  
-  .text-balance {
-    text-wrap: balance;
-  }
+/* ═══════════════════════════════════════════
+   Utilities
+   ═══════════════════════════════════════════ */
+@utility glass {
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+@utility glass-strong {
+  background-color: var(--glass-strong-bg);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid var(--glass-strong-border);
+  box-shadow: var(--glass-shadow);
+}
+
+@utility text-balance {
+  text-wrap: balance;
 }

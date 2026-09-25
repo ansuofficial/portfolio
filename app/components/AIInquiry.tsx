@@ -1,0 +1,423 @@
+import { memo, useState, useCallback, useRef } from "react";
+import { useFetcher } from "@remix-run/react";
+import {
+  HiOutlineSparkles,
+  HiOutlineDocumentArrowUp,
+  HiOutlineXMark,
+  HiOutlinePaperAirplane,
+  HiOutlineDocumentText,
+  HiOutlinePhoto,
+} from "react-icons/hi2";
+import { LiaLinkedin } from "react-icons/lia";
+import { FaWhatsapp } from "react-icons/fa";
+import { HiOutlineMail } from "react-icons/hi";
+import { Button } from "~/components/ui/button";
+import { Label } from "~/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "~/components/ui/select";
+import { Textarea } from "~/components/ui/textarea";
+
+const BUDGET_OPTIONS = [
+  { value: "500-1000", label: "$500 — $1,000" },
+  { value: "1000-3000", label: "$1,000 — $3,000" },
+  { value: "3000-5000", label: "$3,000 — $5,000" },
+  { value: "5000-10000", label: "$5,000 — $10,000" },
+  { value: "10000+", label: "$10,000+" },
+  { value: "discuss", label: "Let's discuss" },
+];
+
+const ACCEPTED_FILE_TYPES = [
+  "application/pdf",
+  "image/png",
+  "image/jpeg",
+  "image/jpg",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+];
+
+const MAX_FILES = 3;
+
+const INQUIRY_PLACEHOLDER = `Describe what you need — ask about anything, not just what's listed.
+
+e.g. consultancy · private lessons · web development`;
+
+function getFileIcon(type: string) {
+  if (type.startsWith("image/")) return HiOutlinePhoto;
+  return HiOutlineDocumentText;
+}
+
+function formatFileSize(bytes: number): string {
+  if (bytes < 1024) return `${bytes}B`;
+  if (bytes < 1048576) return `${(bytes / 1024).toFixed(1)}KB`;
+  return `${(bytes / 1048576).toFixed(1)}MB`;
+}
+
+function AIInquiry() {
+  const [message, setMessage] = useState("");
+  const [budget, setBudget] = useState("");
+  const [files, setFiles] = useState<File[]>([]);
+  const [isDragging, setIsDragging] = useState(false);
+  const [isImproved, setIsImproved] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const rewriteFetcher = useFetcher<{ rewritten?: string; error?: string }>();
+  const submitFetcher = useFetcher<{
+    success?: string;
+    error?: string;
+  }>();
+
+  const isRewriting = rewriteFetcher.state !== "idle";
+  const isSubmitting = submitFetcher.state !== "idle";
+
+  // Handle AI rewrite response
+  if (
+    rewriteFetcher.data?.rewritten &&
+    rewriteFetcher.state === "idle" &&
+    !isImproved
+  ) {
+    setMessage(rewriteFetcher.data.rewritten);
+    setIsImproved(true);
+  }
+
+  const handleRewrite = useCallback(() => {
+    if (!message.trim() || isRewriting) return;
+    setIsImproved(false);
+    rewriteFetcher.submit(
+      { intent: "rewrite", message: message.trim() },
+      { method: "POST", action: "/api/inquiry" }
+    );
+  }, [message, isRewriting, rewriteFetcher]);
+
+  const handleSubmit = useCallback(() => {
+    if (!message.trim() || !budget) return;
+
+    const formData = new FormData();
+    formData.append("intent", "submit");
+    formData.append("message", message.trim());
+    formData.append("budget", budget);
+    files.forEach((file) => formData.append("files", file));
+
+    submitFetcher.submit(formData, {
+      method: "POST",
+      action: "/api/inquiry",
+      encType: "multipart/form-data",
+    });
+  }, [message, budget, files, submitFetcher]);
+
+  // Reset form on successful submission
+  if (submitFetcher.data?.success && submitFetcher.state === "idle" && message) {
+    setMessage("");
+    setBudget("");
+    setFiles([]);
+    setIsImproved(false);
+  }
+
+  const handleDragOver = useCallback(
+    (e: React.DragEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (!isDragging) setIsDragging(true);
+    },
+    [isDragging]
+  );
+
+  const handleDragLeave = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+  }, []);
+
+  const handleDrop = useCallback(
+    (e: React.DragEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setIsDragging(false);
+
+      const droppedFiles = Array.from(e.dataTransfer.files).filter((file) =>
+        ACCEPTED_FILE_TYPES.includes(file.type)
+      );
+      setFiles((prev) => [...prev, ...droppedFiles].slice(0, MAX_FILES));
+    },
+    []
+  );
+
+  const handleFileSelect = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const selected = Array.from(e.target.files || []);
+      setFiles((prev) => [...prev, ...selected].slice(0, MAX_FILES));
+      if (fileInputRef.current) fileInputRef.current.value = "";
+    },
+    []
+  );
+
+  const removeFile = useCallback((index: number) => {
+    setFiles((prev) => prev.filter((_, i) => i !== index));
+  }, []);
+
+  const canSubmit = message.trim().length > 0 && budget !== "";
+
+  return (
+    <div
+      className="glass rounded-xl p-6 lg:p-8 space-y-6"
+      role="region"
+      aria-labelledby="inquiry-heading"
+      id="inquiry"
+    >
+      {/* Header */}
+      <div className="space-y-2">
+        <h2
+          id="inquiry-heading"
+          className="text-xl md:text-2xl font-display font-bold tracking-tight"
+          style={{ color: "var(--text)" }}
+        >
+          What problem is your business facing?
+        </h2>
+        <p style={{ color: "var(--text-subtle)" }} className="text-sm">
+          Describe your challenge — I'll help you articulate it clearly.
+        </p>
+      </div>
+
+      {/* Status Messages */}
+      {submitFetcher.data?.success && (
+        <div className="bg-secondary/15 border border-secondary/30 rounded-lg px-4 py-3 text-secondary text-sm font-medium" role="alert">
+          {submitFetcher.data.success}
+        </div>
+      )}
+      {(submitFetcher.data?.error || rewriteFetcher.data?.error) && (
+        <div className="bg-red-500/15 border border-red-500/30 rounded-lg px-4 py-3 text-red-400 text-sm font-medium" role="alert">
+          {submitFetcher.data?.error || rewriteFetcher.data?.error}
+        </div>
+      )}
+
+      {/* Text Area */}
+      <div className="relative">
+        <Textarea
+          value={message}
+          onChange={(e) => {
+            setMessage(e.target.value);
+            setIsImproved(false);
+          }}
+          placeholder={INQUIRY_PLACEHOLDER}
+          rows={5}
+          aria-label="Describe your business problem"
+        />
+
+        {/* AI Rewrite Button */}
+        <div className="flex items-center justify-between mt-3">
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            onClick={handleRewrite}
+            disabled={!message.trim() || isRewriting}
+            aria-label="Improve message with AI"
+          >
+            <HiOutlineSparkles
+              className={`w-4 h-4 ${isRewriting ? "animate-spin" : ""}`}
+            />
+            {isRewriting
+              ? "Improving..."
+              : isImproved
+              ? "Improve again"
+              : "Improve my message"}
+          </Button>
+          {isImproved && (
+            <span className="text-secondary/70 text-xs font-medium flex items-center gap-1">
+              <HiOutlineSparkles className="w-3 h-3" />
+              AI improved
+            </span>
+          )}
+        </div>
+      </div>
+
+      {/* File Drop Zone */}
+      <div
+        onDragOver={handleDragOver}
+        onDragLeave={handleDragLeave}
+        onDrop={handleDrop}
+        onClick={() => fileInputRef.current?.click()}
+        className={`relative rounded-lg border-2 border-dashed transition-all duration-200 cursor-pointer ${
+          isDragging
+            ? "border-primary/50 bg-primary/5"
+            : ""
+        } ${files.length >= MAX_FILES ? "opacity-50 pointer-events-none" : ""}`}
+        style={
+          !isDragging
+            ? {
+                borderColor: "var(--input-border)",
+              }
+            : undefined
+        }
+        onMouseEnter={(e) => {
+          if (!isDragging) {
+            (e.currentTarget as HTMLDivElement).style.borderColor = "var(--text-faint)";
+          }
+        }}
+        onMouseLeave={(e) => {
+          if (!isDragging) {
+            (e.currentTarget as HTMLDivElement).style.borderColor = "var(--input-border)";
+          }
+        }}
+      >
+        <input
+          ref={fileInputRef}
+          type="file"
+          multiple
+          accept=".pdf,.png,.jpg,.jpeg,.doc,.docx"
+          onChange={handleFileSelect}
+          className="hidden"
+          aria-label="Upload files"
+        />
+        <div className="flex items-center gap-3 px-4 py-3">
+          <HiOutlineDocumentArrowUp
+            className="w-5 h-5 flex-shrink-0"
+            style={{ color: isDragging ? undefined : "var(--text-faint)" }}
+          />
+          <div>
+            <p className="text-xs font-medium" style={{ color: "var(--text-subtle)" }}>
+              {isDragging
+                ? "Drop files here"
+                : "Drag & drop files or click to browse"}
+            </p>
+            <p className="text-[11px]" style={{ color: "var(--text-faint)" }}>
+              PDF, images, or docs — max {MAX_FILES} files
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* File List */}
+      {files.length > 0 && (
+        <div className="flex flex-wrap gap-2">
+          {files.map((file, index) => {
+            const FileIcon = getFileIcon(file.type);
+            return (
+              <div
+                key={`${file.name}-${index}`}
+                className="flex items-center gap-2 px-3 py-2 rounded-lg"
+                style={{
+                  backgroundColor: "var(--input-bg)",
+                  border: "1px solid var(--input-border)",
+                }}
+              >
+                <FileIcon className="w-4 h-4 flex-shrink-0" style={{ color: "var(--text-subtle)" }} />
+                <span className="text-xs font-medium truncate max-w-[140px]" style={{ color: "var(--text-muted)" }}>
+                  {file.name}
+                </span>
+                <span className="text-[10px]" style={{ color: "var(--text-faint)" }}>
+                  {formatFileSize(file.size)}
+                </span>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    removeFile(index);
+                  }}
+                  className="transition-colors ml-1"
+                  style={{ color: "var(--text-faint)" }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = "var(--text-subtle)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = "var(--text-faint)";
+                  }}
+                  aria-label={`Remove ${file.name}`}
+                >
+                  <HiOutlineXMark className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Budget + Submit Row */}
+      <div className="flex flex-col sm:flex-row gap-3">
+        <div className="relative flex-1 space-y-2">
+          <Label htmlFor="budget-select" className="sr-only">
+            Estimated budget
+          </Label>
+          <Select value={budget || undefined} onValueChange={setBudget}>
+            <SelectTrigger id="budget-select" aria-label="Select estimated budget">
+              <SelectValue placeholder="Select your estimated budget" />
+            </SelectTrigger>
+            <SelectContent>
+              {BUDGET_OPTIONS.map((option) => (
+                <SelectItem key={option.value} value={option.value}>
+                  {option.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
+        <Button
+          type="button"
+          size="lg"
+          onClick={handleSubmit}
+          disabled={!canSubmit || isSubmitting}
+          className="whitespace-nowrap"
+        >
+          {isSubmitting ? (
+            <>
+              <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+              Sending...
+            </>
+          ) : (
+            <>
+              <HiOutlinePaperAirplane className="w-4 h-4" />
+              Send Inquiry
+            </>
+          )}
+        </Button>
+      </div>
+
+      {/* Minimal Contact Strip */}
+      <div
+        className="h-px"
+        style={{
+          backgroundImage: `linear-gradient(to right, transparent, var(--divider), transparent)`,
+        }}
+      />
+      <div className="flex items-center justify-center gap-6 flex-wrap">
+        <a
+          href="mailto:ansucoder@gmail.com"
+          className="flex items-center gap-2 transition-colors text-xs font-medium group"
+          style={{ color: "var(--text-subtle)" }}
+          aria-label="Email"
+        >
+          <HiOutlineMail className="w-4 h-4 group-hover:text-primary transition-colors" />
+          ansucoder@gmail.com
+        </a>
+        <a
+          href="https://www.linkedin.com/in/ansu-badjie-3a979b280/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 transition-colors text-xs font-medium group"
+          style={{ color: "var(--text-subtle)" }}
+          aria-label="LinkedIn"
+        >
+          <LiaLinkedin className="w-4 h-4 group-hover:text-primary transition-colors" />
+          LinkedIn
+        </a>
+        <a
+          href="https://wa.me/2203338111"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 transition-colors text-xs font-medium group"
+          style={{ color: "var(--text-subtle)" }}
+          aria-label="WhatsApp"
+        >
+          <FaWhatsapp className="w-4 h-4 group-hover:text-secondary transition-colors" />
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  );
+}
+
+export default memo(AIInquiry);
